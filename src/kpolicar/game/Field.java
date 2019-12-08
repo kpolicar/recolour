@@ -1,17 +1,18 @@
 package kpolicar.game;
 
+import kpolicar.Main;
+
 import java.awt.*;
 import java.util.Arrays;
 import java.util.Random;
 import java.util.stream.Stream;
 
 public class Field {
-    Color[] variations;
     public Cell[][] cells;
     Random rand = new Random();
 
-    public Field(int rows, int columns, int variations) {
-        generateVariations(variations);
+    public Field() {
+        int rows = Main.preferences.rows, columns = Main.preferences.columns;
 
         cells = new Cell[rows][columns];
         for (int row = 0; row < rows; row++) {
@@ -21,20 +22,10 @@ public class Field {
         }
     }
 
-    public void generateVariations(int number) {
-        variations = new Color[number];
-        for (int i = 0; i < number; i++) {
-            variations[i] = new Color(
-                    rand.nextInt(255),
-                    rand.nextInt(255),
-                    rand.nextInt(255));
-        }
-    }
-
     public void randomize() {
         Stream.of(cells)
                 .flatMap(Arrays::stream)
-                .forEach(o -> o.color(variation()));
+                .forEach(cell -> cell.color(variation()));
     }
 
     public Cell cellAt(Point position) {
@@ -42,6 +33,7 @@ public class Field {
     }
 
     public Color variation() {
-        return variations[rand.nextInt(variations.length)];
+        Color[] palette = Main.preferences.palette;
+        return palette[rand.nextInt(palette.length)];
     }
 }

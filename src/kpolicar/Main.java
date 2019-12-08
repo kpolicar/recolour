@@ -1,7 +1,6 @@
 package kpolicar;
 
 import kpolicar.game.Field;
-import kpolicar.ui.EventHandler;
 import kpolicar.ui.GameFrame;
 
 import javax.swing.*;
@@ -10,25 +9,30 @@ public class Main {
 
     static GameFrame mainFrame;
     static Field gameField;
-    static EventHandler uxEventHandler;
+    static kpolicar.ui.EventHandler uiEventHandler;
+    static kpolicar.game.EventHandler gameEventHandler;
 
     public static void main(String[] args) {
-        int rows, columns;
+        int rows, columns, variations;
         rows = Integer.parseInt(args[0]);
         columns = Integer.parseInt(args[1]);
+        variations = Integer.parseInt(args[2]);
 
-        init(rows, columns);
+        init(rows, columns, variations);
 
         mainFrame.setVisible(true);
     }
 
-    private static void init(int rows, int columns) {
+    private static void init(int rows, int columns, int variations) {
         mainFrame = new GameFrame(rows, columns);
         mainFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
-        gameField = new Field(rows, columns);
+        gameField = new Field(variations);
 
-        uxEventHandler = new EventHandler(mainFrame, gameField);
+        uiEventHandler = new kpolicar.ui.EventHandler(mainFrame, gameField);
+        gameEventHandler = new kpolicar.game.EventHandler(mainFrame, gameField);
+
+        gameField.buildCells(rows, columns);
     }
 
 }

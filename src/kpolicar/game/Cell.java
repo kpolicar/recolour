@@ -13,4 +13,8 @@ public class Cell {
     public void Color(Color color) {
         this.color = color;
     }
+
+    public void changeColor(Color color) {
+
+    }
 }

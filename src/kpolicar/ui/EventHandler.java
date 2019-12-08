@@ -5,6 +5,7 @@ import kpolicar.game.Field;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Arrays;
+import java.util.stream.Stream;
 
 public class EventHandler implements ActionListener {
     GameFrame gameFrame;
@@ -17,7 +18,9 @@ public class EventHandler implements ActionListener {
     }
 
     private void bindButtons() {
-        Arrays.stream(gameFrame.buttons).forEach(o -> o.addActionListener(this));
+        Stream.of(gameFrame.buttons)
+                .flatMap(Arrays::stream)
+                .forEach(o -> o.addActionListener(this));
     }
 
     @Override

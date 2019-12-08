@@ -1,6 +1,6 @@
 package kpolicar;
 
-import kpolicar.game.Field;
+import kpolicar.game.Board;
 import kpolicar.game.Preferences;
 import kpolicar.ui.GameFrame;
 
@@ -9,7 +9,7 @@ import javax.swing.*;
 public class Main {
     public static Preferences preferences;
     static GameFrame mainFrame;
-    static Field gameField;
+    static Board gameBoard;
     static kpolicar.ui.EventHandler uiEventHandler;
     static kpolicar.game.EventHandler gameEventHandler;
 
@@ -26,12 +26,12 @@ public class Main {
 
     private static void initGame() {
         mainFrame = new GameFrame();
-        gameField = new Field();
+        gameBoard = new Board();
 
-        uiEventHandler = new kpolicar.ui.EventHandler(mainFrame, gameField);
-        gameEventHandler = new kpolicar.game.EventHandler(mainFrame, gameField);
+        uiEventHandler = new kpolicar.ui.EventHandler(mainFrame, gameBoard);
+        gameEventHandler = new kpolicar.game.EventHandler(mainFrame, gameBoard);
 
-        gameField.randomize();
+        gameBoard.randomize();
 
         mainFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         mainFrame.setVisible(true);

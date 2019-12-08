@@ -2,9 +2,8 @@ package kpolicar.ui;
 
 import kpolicar.Main;
 import kpolicar.game.Cell;
-import kpolicar.game.Field;
+import kpolicar.game.Board;
 
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Arrays;
@@ -12,11 +11,11 @@ import java.util.stream.Stream;
 
 public class EventHandler implements ActionListener {
     GameFrame gameFrame;
-    Field field;
+    Board board;
 
-    public EventHandler(GameFrame gameFrame, Field field) {
+    public EventHandler(GameFrame gameFrame, Board board) {
         this.gameFrame = gameFrame;
-        this.field = field;
+        this.board = board;
         bindButtons();
     }
 
@@ -29,7 +28,7 @@ public class EventHandler implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         GridButton button = (GridButton) e.getSource();
-        Cell cell = field.cellAt(button.position);
+        Cell cell = board.cellAt(button.position);
         cell.color(Main.preferences.source);
     }
 }

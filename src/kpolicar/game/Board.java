@@ -7,11 +7,11 @@ import java.util.Arrays;
 import java.util.Random;
 import java.util.stream.Stream;
 
-public class Field {
+public class Board {
     public Cell[][] cells;
     Random rand = new Random();
 
-    public Field() {
+    public Board() {
         int rows = Main.preferences.rows, columns = Main.preferences.columns;
 
         cells = new Cell[rows][columns];

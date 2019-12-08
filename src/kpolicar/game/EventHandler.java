@@ -7,16 +7,16 @@ import java.util.stream.Stream;
 
 public class EventHandler implements CellListener {
     GameFrame gameFrame;
-    Field field;
+    Board board;
 
-    public EventHandler(GameFrame gameFrame, Field field) {
+    public EventHandler(GameFrame gameFrame, Board board) {
         this.gameFrame = gameFrame;
-        this.field = field;
+        this.board = board;
         bindCells();
     }
 
     private void bindCells() {
-        Stream.of(field.cells)
+        Stream.of(board.cells)
                 .flatMap(Arrays::stream)
                 .forEach(o -> o.addListener(this));
     }

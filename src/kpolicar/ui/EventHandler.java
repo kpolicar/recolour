@@ -1,7 +1,9 @@
 package kpolicar.ui;
 
+import kpolicar.game.Cell;
 import kpolicar.game.Field;
 
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Arrays;
@@ -26,6 +28,7 @@ public class EventHandler implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         GridButton button = (GridButton) e.getSource();
-        System.out.println(button.position);
+        Cell cell = field.cellAt(button.position);
+        cell.color(Color.RED);
     }
 }

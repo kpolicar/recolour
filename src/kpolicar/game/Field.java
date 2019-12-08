@@ -5,7 +5,7 @@ import java.util.Random;
 
 public class Field {
     Color[] variations;
-    Cell[][] cells;
+    public Cell[][] cells;
     Random rand = new Random();
 
     public Field(int variations) {
@@ -33,7 +33,11 @@ public class Field {
 
     public void initCell(int row, int column) {
         Cell cell = cells[row][column] = new Cell(row, column);
-        cell.changeColor(variation());
+        cell.color(variation());
+    }
+
+    public Cell cellAt(Point position) {
+        return cells[position.x][position.y];
     }
 
     public Color variation() {

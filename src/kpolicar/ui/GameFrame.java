@@ -1,5 +1,7 @@
 package kpolicar.ui;
 
+import kpolicar.game.Cell;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -18,5 +20,9 @@ public class GameFrame extends JFrame {
                 add(button);
             }
         }
+    }
+
+    public GridButton buttonAt(Point position) {
+        return buttons[position.x][position.y];
     }
 }

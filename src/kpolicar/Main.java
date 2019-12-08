@@ -28,11 +28,10 @@ public class Main {
         mainFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
         gameField = new Field(variations);
+        gameField.buildCells(rows, columns);
 
         uiEventHandler = new kpolicar.ui.EventHandler(mainFrame, gameField);
         gameEventHandler = new kpolicar.game.EventHandler(mainFrame, gameField);
-
-        gameField.buildCells(rows, columns);
     }
 
 }

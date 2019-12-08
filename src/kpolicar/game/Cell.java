@@ -1,20 +1,16 @@
 package kpolicar.game;
 
+import javax.swing.event.EventListenerList;
 import java.awt.*;
 
-public class Cell {
-    Point position;
-    Color color;
+public class Cell extends CellAbstract {
 
     Cell(int row, int column) {
-
+        position = new Point(row, column);
     }
 
-    public void Color(Color color) {
+    public void color(Color color) {
         this.color = color;
-    }
-
-    public void changeColor(Color color) {
-
+        fireColorChanged();
     }
 }

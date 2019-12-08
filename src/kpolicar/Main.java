@@ -25,13 +25,14 @@ public class Main {
 
     private static void init(int rows, int columns, int variations) {
         mainFrame = new GameFrame(rows, columns);
-        mainFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        gameField = new Field(rows, columns, variations);
 
-        gameField = new Field(variations);
-        gameField.buildCells(rows, columns);
+        mainFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
         uiEventHandler = new kpolicar.ui.EventHandler(mainFrame, gameField);
         gameEventHandler = new kpolicar.game.EventHandler(mainFrame, gameField);
+
+        gameField.randomize();
     }
 
 }

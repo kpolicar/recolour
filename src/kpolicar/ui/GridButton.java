@@ -14,7 +14,6 @@ public class GridButton extends JButton {
         setOpaque(true);
         setBackground(Color.BLUE);
         setForeground(Color.WHITE);
-
     }
 
     public String formatPosition() {

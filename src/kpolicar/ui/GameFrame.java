@@ -18,6 +18,8 @@ public class GameFrame extends JFrame {
         add(new Label("Heyo"), BorderLayout.PAGE_START);
         add(new PalettePanel(), BorderLayout.LINE_END);
         add(grid = new ButtonGrid(rows, columns), BorderLayout.CENTER);
+
+        setJMenuBar(new GameMenu());
     }
 
     public GridButton buttonAt(Point position) {

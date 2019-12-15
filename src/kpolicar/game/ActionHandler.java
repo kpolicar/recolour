@@ -30,15 +30,7 @@ public class ActionHandler {
     }
 
     public void paint(Point position, Color color) {
-        execute(new Paint(gameFrame.buttonAt(position), color));
-
-        for (Cell neighbor : board.neighborsOf(position)) {
-            if (neighbor.color != Main.preferences.target) {
-                continue;
-            }
-            GridButton button = gameFrame.buttonAt(neighbor.position);
-            execute(new Paint(button, color));
-        }
+        execute(new Paint(gameFrame, board.cellAt(position), color));
     }
 
     public void randomize() {

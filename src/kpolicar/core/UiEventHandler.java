@@ -1,14 +1,10 @@
 package kpolicar.core;
 
 import kpolicar.Main;
-import kpolicar.core.Game;
 import kpolicar.game.ActionHandler;
-import kpolicar.game.entity.Cell;
-import kpolicar.game.entity.Board;
 import kpolicar.ui.GameFrame;
 import kpolicar.ui.GridButton;
 
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Arrays;
@@ -34,7 +30,9 @@ public class UiEventHandler implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         GridButton button = (GridButton) e.getSource();
         if (Main.preferences.source == null) {
-            actions.begin(button.position);
+            actions.assignSource(button.position);
+        } else if (Main.preferences.target == null) {
+            actions.assignTarget(button.position);
         } else {
             actions.paint(button.position, Main.preferences.source);
         }

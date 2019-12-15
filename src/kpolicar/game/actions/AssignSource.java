@@ -4,10 +4,10 @@ import kpolicar.Main;
 
 import java.awt.*;
 
-public class AssignSourceColor implements GameAction {
+public class AssignSource implements GameAction {
     Color color;
 
-    public AssignSourceColor(Color color) {
+    public AssignSource(Color color) {
         this.color = color;
     }
 

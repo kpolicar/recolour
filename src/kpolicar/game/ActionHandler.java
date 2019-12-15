@@ -1,10 +1,8 @@
 package kpolicar.game;
 
 import kpolicar.Main;
-import kpolicar.game.actions.AssignSourceColor;
-import kpolicar.game.actions.GameAction;
+import kpolicar.game.actions.*;
 import kpolicar.game.actions.Paint;
-import kpolicar.game.actions.Randomize;
 import kpolicar.game.entity.Board;
 import kpolicar.game.entity.Cell;
 import kpolicar.ui.GameFrame;
@@ -23,13 +21,21 @@ public class ActionHandler {
         this.playerScore = score;
     }
 
-    public void begin(Point position) {
-        execute(new AssignSourceColor(board.cellAt(position).color));
+    public void assignSource(Point position) {
+        execute(new AssignSource(board.cellAt(position).color));
+    }
+
+    public void assignTarget(Point position) {
+        execute(new AssignTarget(board.cellAt(position).color));
     }
 
     public void paint(Point position, Color color) {
         execute(new Paint(gameFrame.buttonAt(position), color));
+
         for (Cell neighbor : board.neighborsOf(position)) {
+            if (neighbor.color != Main.preferences.target) {
+                continue;
+            }
             GridButton button = gameFrame.buttonAt(neighbor.position);
             execute(new Paint(button, color));
         }

@@ -30,7 +30,6 @@ public class Board {
                 }
             }
         }
-        System.out.println(neighbors.getFirst());
 
         return neighbors.toArray(new Cell[0]);
     }

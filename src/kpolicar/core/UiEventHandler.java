@@ -21,7 +21,7 @@ public class UiEventHandler implements ActionListener {
     }
 
     private void bindButtons() {
-        Stream.of(frame.buttons)
+        Stream.of(frame.grid.buttons)
                 .flatMap(Arrays::stream)
                 .forEach(o -> o.addActionListener(this));
     }

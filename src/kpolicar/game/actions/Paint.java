@@ -20,12 +20,21 @@ public class Paint implements GameAction, IncrementsScore {
 
     @Override
     public void execute() {
+        if (!shouldPaint()) return;
+
         for (Cell neighbor : cell.neighbors()) {
-            if (neighbor.color != Main.preferences.target) {
-                continue;
-            }
             colorButton(neighbor.position);
         }
+        colorButton(cell.position);
+    }
+
+    protected boolean shouldPaint() {
+        for (Cell neighbor : cell.neighbors()) {
+            if (neighbor.color == Main.preferences.target) {
+                return true;
+            }
+        }
+        return false;
     }
 
     protected void colorButton(Point position) {

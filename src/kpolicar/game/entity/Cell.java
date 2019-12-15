@@ -1,6 +1,5 @@
-package kpolicar.game;
+package kpolicar.game.entity;
 
-import javax.swing.event.EventListenerList;
 import java.awt.*;
 
 public class Cell extends CellAbstract {

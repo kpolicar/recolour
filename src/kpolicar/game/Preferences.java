@@ -7,8 +7,8 @@ public class Preferences {
     public int columns;
     public int rows;
 
-    Color[] palette;
-    public Color source = Color.RED;
+    public Color[] palette;
+    public Color source;
     Color target;
 
     public Preferences(int rows, int columns, int variations) {

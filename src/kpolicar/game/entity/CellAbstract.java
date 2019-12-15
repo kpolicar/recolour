@@ -1,14 +1,11 @@
-package kpolicar.game;
+package kpolicar.game.entity;
 
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 import javax.swing.event.EventListenerList;
 import java.awt.*;
-import java.awt.event.ItemListener;
 
 public abstract class CellAbstract {
-    Point position;
-    Color color;
+    public Point position;
+    public Color color;
     protected EventListenerList listenerList = new EventListenerList();
 
     protected void fireColorChanged() {

@@ -1,15 +1,10 @@
-package kpolicar.game;
+package kpolicar.game.entity;
 
 import kpolicar.Main;
-
 import java.awt.*;
-import java.util.Arrays;
-import java.util.Random;
-import java.util.stream.Stream;
 
 public class Board {
     public Cell[][] cells;
-    Random rand = new Random();
 
     public Board() {
         int rows = Main.preferences.rows, columns = Main.preferences.columns;
@@ -22,18 +17,7 @@ public class Board {
         }
     }
 
-    public void randomize() {
-        Stream.of(cells)
-                .flatMap(Arrays::stream)
-                .forEach(cell -> cell.color(variation()));
-    }
-
     public Cell cellAt(Point position) {
         return cells[position.x][position.y];
-    }
-
-    public Color variation() {
-        Color[] palette = Main.preferences.palette;
-        return palette[rand.nextInt(palette.length)];
     }
 }

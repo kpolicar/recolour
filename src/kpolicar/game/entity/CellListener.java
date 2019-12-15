@@ -1,4 +1,4 @@
-package kpolicar.game;
+package kpolicar.game.entity;
 
 import java.util.EventListener;
 

@@ -1,6 +1,9 @@
 package kpolicar;
 
-import kpolicar.game.Board;
+import kpolicar.core.UiEventHandler;
+import kpolicar.core.GameEventHandler;
+import kpolicar.core.Game;
+import kpolicar.game.entity.Board;
 import kpolicar.game.Preferences;
 import kpolicar.ui.GameFrame;
 
@@ -10,8 +13,8 @@ public class Main {
     public static Preferences preferences;
     static GameFrame mainFrame;
     static Board gameBoard;
-    static kpolicar.ui.EventHandler uiEventHandler;
-    static kpolicar.game.EventHandler gameEventHandler;
+    static UiEventHandler uiEventHandler;
+    static GameEventHandler gameEventHandler;
 
     public static void main(String[] args) {
         int rows, columns, variations;
@@ -26,15 +29,9 @@ public class Main {
 
     private static void initGame() {
         mainFrame = new GameFrame();
-        gameBoard = new Board();
-
-        uiEventHandler = new kpolicar.ui.EventHandler(mainFrame, gameBoard);
-        gameEventHandler = new kpolicar.game.EventHandler(mainFrame, gameBoard);
-
-        gameBoard.randomize();
-
         mainFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        mainFrame.setVisible(true);
+        Game game = new Game(mainFrame);
+        game.begin();
     }
 
 }

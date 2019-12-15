@@ -1,15 +1,12 @@
 package kpolicar.ui;
 
-import com.sun.scenario.effect.impl.sw.java.JSWBoxBlurPeer;
 import kpolicar.Main;
-import kpolicar.game.Cell;
-import kpolicar.game.Preferences;
 
 import javax.swing.*;
 import java.awt.*;
 
 public class GameFrame extends JFrame {
-    public GridButton buttons[][];
+    public GridButton[][] buttons;
 
     public GameFrame() {
         int rows = Main.preferences.rows, columns = Main.preferences.columns;

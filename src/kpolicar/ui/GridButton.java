@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class GridButton extends JButton {
-    Point position;
+    public Point position;
     
     public GridButton(int row, int column) {
         super();

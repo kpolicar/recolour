@@ -13,10 +13,12 @@ import java.util.stream.Stream;
 public class GameEventHandler implements CellListener {
     ActionHandler actions;
     Board board;
+    GameFrame gameFrame;
 
     public GameEventHandler(Game game) {
         this.board = game.board;
         this.actions = game.actions;
+        gameFrame = game.frame;
         bindCells();
     }
 
@@ -28,6 +30,6 @@ public class GameEventHandler implements CellListener {
 
     @Override
     public void colorChanged(CellAbstract source) {
-        actions.paint(source.position, source.color);
+        gameFrame.buttonAt(source.position).setBackground(source.color);
     }
 }

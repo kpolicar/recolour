@@ -22,11 +22,11 @@ public class ActionHandler {
     }
 
     public void assignSource(Point position) {
-        execute(new AssignSource(board.cellAt(position).color));
+        execute(new AssignSource(board.cellAt(position).color, gameFrame.palette));
     }
 
     public void assignTarget(Point position) {
-        execute(new AssignTarget(board.cellAt(position).color));
+        execute(new AssignTarget(board.cellAt(position).color, gameFrame.palette));
     }
 
     public void paint(Point position, Color color) {

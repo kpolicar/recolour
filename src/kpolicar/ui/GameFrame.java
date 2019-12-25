@@ -7,6 +7,7 @@ import java.awt.*;
 
 public class GameFrame extends JFrame {
     public ButtonGrid grid;
+    public PalettePanel palette;
 
     public GameFrame() {
         int rows = Main.preferences.rows, columns = Main.preferences.columns;
@@ -16,7 +17,7 @@ public class GameFrame extends JFrame {
         setExtendedState(Frame.MAXIMIZED_BOTH);
 
         add(new Label("Heyo"), BorderLayout.PAGE_START);
-        add(new PalettePanel(), BorderLayout.LINE_END);
+        add(palette = new PalettePanel(), BorderLayout.LINE_END);
         add(grid = new ButtonGrid(rows, columns), BorderLayout.CENTER);
 
         setJMenuBar(new GameMenu());

@@ -1,8 +1,10 @@
 package kpolicar.game.entity;
 
+import javax.xml.bind.annotation.*;
 import java.awt.*;
 
 public class Cell extends CellAbstract {
+    @XmlTransient()
     Board board;
 
     Cell(Board board, int row, int column) {

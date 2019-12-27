@@ -1,43 +1,41 @@
 package kpolicar.game;
 
 import kpolicar.Main;
+import kpolicar.core.Game;
 import kpolicar.game.actions.*;
 import kpolicar.game.actions.Paint;
-import kpolicar.game.entity.Board;
-import kpolicar.game.entity.Cell;
-import kpolicar.ui.GameFrame;
-import kpolicar.ui.GridButton;
 
 import java.awt.*;
 
 public class ActionHandler {
-    Score playerScore;
-    GameFrame gameFrame;
-    Board board;
+    Game game;
 
-    public ActionHandler(GameFrame gameFrame, Board board, Score score) {
-        this.gameFrame = gameFrame;
-        this.board = board;
-        this.playerScore = score;
+    public ActionHandler(Game game) {
+        this.game = game;
     }
 
     public void assignSource(Point position) {
-        execute(new AssignSource(board.cellAt(position).color, gameFrame.palette));
+        execute(new AssignSource(game.board.cellAt(position).color, game.frame.palette));
     }
 
     public void assignTarget(Point position) {
-        execute(new AssignTarget(board.cellAt(position).color, gameFrame.palette));
+        execute(new AssignTarget(game.board.cellAt(position).color, game.frame.palette));
     }
 
     public void paint(Point position, Color color) {
-        execute(new Paint(gameFrame, board.cellAt(position), color));
+        execute(new Paint(game.frame, game.board.cellAt(position), color));
+        game.state.onSave();
     }
 
     public void randomize() {
-        execute(new Randomize(board, Main.preferences.palette));
+        execute(new Randomize(game.board, Main.preferences.palette));
     }
 
     public void execute(GameAction action) {
         action.execute();
+    }
+
+    public void load() {
+        game.state.onLoad();
     }
 }

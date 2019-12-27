@@ -1,9 +1,12 @@
 package kpolicar.game.entity;
 
 import kpolicar.Main;
+
+import javax.xml.bind.annotation.*;
 import java.awt.*;
 import java.util.LinkedList;
 
+@XmlRootElement
 public class Board {
     public Cell[][] cells;
 

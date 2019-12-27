@@ -4,12 +4,15 @@ import javax.swing.*;
 import java.awt.event.KeyEvent;
 
 public class GameMenu extends JMenuBar {
+    public JMenuItem newGame;
+    public JMenuItem loadGame;
+
     public GameMenu() {
         super();
 
         JMenu play = new JMenu("Play");
-        JMenuItem newGame = new JMenuItem("New game");
-        JMenuItem loadGame = new JMenuItem("Load game");
+        newGame = new JMenuItem("New game");
+        loadGame = new JMenuItem("Load game");
         play.add(newGame);
         play.add(loadGame);
         add(play);

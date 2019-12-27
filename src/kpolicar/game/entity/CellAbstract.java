@@ -1,12 +1,31 @@
 package kpolicar.game.entity;
 
 import javax.swing.event.EventListenerList;
+import javax.xml.bind.annotation.*;
 import java.awt.*;
 
 public abstract class CellAbstract {
+    @XmlTransient
     public Point position;
+    @XmlTransient
     public Color color;
+    @XmlTransient
     protected EventListenerList listenerList = new EventListenerList();
+
+    @XmlAttribute(name = "x")
+    public int getX() {
+        return position.x;
+    }
+
+    @XmlAttribute(name = "y")
+    public int getY() {
+        return position.y;
+    }
+
+    @XmlValue
+    public String getColor() {
+        return color.toString() ;
+    }
 
     protected void fireColorChanged() {
         Object[] listeners = listenerList.getListenerList();

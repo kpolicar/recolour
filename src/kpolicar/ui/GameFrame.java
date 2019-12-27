@@ -6,6 +6,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class GameFrame extends JFrame {
+    public GameMenu menu;
     public ButtonGrid grid;
     public PalettePanel palette;
 
@@ -20,7 +21,7 @@ public class GameFrame extends JFrame {
         add(palette = new PalettePanel(), BorderLayout.LINE_END);
         add(grid = new ButtonGrid(rows, columns), BorderLayout.CENTER);
 
-        setJMenuBar(new GameMenu());
+        setJMenuBar(menu = new GameMenu());
     }
 
     public GridButton buttonAt(Point position) {

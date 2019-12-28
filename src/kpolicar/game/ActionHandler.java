@@ -8,10 +8,12 @@ import java.awt.*;
 public class ActionHandler {
     Board board;
     ActionFactory factory;
+    Score score;
 
-    public ActionHandler(Board board, GameFrame frame) {
+    public ActionHandler(Board board, GameFrame frame, Score score) {
         this.factory = new ActionFactory(board, frame);
         this.board = board;
+        this.score = score;
     }
 
     public void assignSource(Point position) {
@@ -23,11 +25,11 @@ public class ActionHandler {
     }
 
     public void paint(Point position, Color color) {
-        factory.paint(position, color).execute();
+        factory.paint(position, color, score).execute();
 
         if (board.isComplete()) {
-            factory.victory().execute();
-            factory.restart().execute();
+            factory.victory(score).execute();
+            factory.restart(score).execute();
         } else {
             factory.save().execute();
         }
@@ -37,8 +39,8 @@ public class ActionHandler {
         factory.randomize().execute();
     }
 
-    public void restart() {
-        factory.restart().execute();
+    public void restart(Score score) {
+        factory.restart(score).execute();
     }
 
     public void save() {

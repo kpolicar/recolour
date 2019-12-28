@@ -1,24 +1,27 @@
 package kpolicar.game.actions;
 
 import kpolicar.Main;
+import kpolicar.game.Score;
 import kpolicar.game.entity.Board;
 import kpolicar.game.entity.Cell;
 import kpolicar.ui.GameFrame;
 import java.awt.*;
 
-public class Paint implements Action, IncrementsScore {
+public class Paint implements Action {
     Cell cell;
     Point position;
     Board board;
     GameFrame gameFrame;
     Color color;
+    Score score;
 
-    public Paint(GameFrame gameFrame, Board board, Point position, Color color) {
+    public Paint(GameFrame gameFrame, Board board, Point position, Color color, Score score) {
         this.gameFrame = gameFrame;
         this.board = board;
         this.position = position;
         this.cell = board.cellAt(position);
         this.color = color;
+        this.score = score;
     }
 
     public void execute() {
@@ -28,6 +31,7 @@ public class Paint implements Action, IncrementsScore {
             color(neighbor.position);
         }
         color(cell.position);
+        score.increment();
     }
 
     protected boolean shouldPaint() {
@@ -42,9 +46,5 @@ public class Paint implements Action, IncrementsScore {
     protected void color(Point position) {
         gameFrame.buttonAt(position).setBackground(color);
         board.cellAt(position).color = color;
-    }
-
-    public boolean shouldIncrementScore() {
-        return false;
     }
 }

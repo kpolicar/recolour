@@ -1,6 +1,7 @@
 package kpolicar.core;
 
 import kpolicar.game.ActionHandler;
+import kpolicar.game.Score;
 import kpolicar.game.events.CellEvent;
 import kpolicar.game.ActionFactory;
 import kpolicar.ui.GameFrame;
@@ -9,12 +10,14 @@ import java.util.Arrays;
 import java.util.stream.Stream;
 
 public class UiEventHandler {
+    Score score;
     ActionHandler actions;
     GameFrame frame;
 
-    public UiEventHandler(GameFrame gameFrame, ActionHandler actions) {
+    public UiEventHandler(GameFrame gameFrame, ActionHandler actions, Score score) {
         this.frame = gameFrame;
         this.actions = actions;
+        this.score = score;
         bindButtons();
         bindMenu();
     }
@@ -29,7 +32,7 @@ public class UiEventHandler {
     }
 
     private void bindMenu() {
-        frame.menu.newGame.addActionListener(e -> actions.restart());
+        frame.menu.newGame.addActionListener(e -> actions.restart(score));
         frame.menu.loadGame.addActionListener(e -> actions.load());
     }
 }

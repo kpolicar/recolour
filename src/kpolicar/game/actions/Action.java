@@ -1,5 +1,5 @@
 package kpolicar.game.actions;
 
-public interface GameAction {
+public interface Action {
     void execute();
 }

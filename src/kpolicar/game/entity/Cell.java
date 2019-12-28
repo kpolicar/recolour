@@ -1,23 +1,39 @@
 package kpolicar.game.entity;
 
-import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.XmlTransient;
 import java.awt.*;
 
-public class Cell extends CellAbstract {
-    @XmlTransient()
-    Board board;
+public class Cell {
+    @XmlTransient
+    public Color color;
+    @XmlTransient
+    public Point position;
 
-    Cell(Board board, int row, int column) {
-        this.board = board;
+    Cell(int row, int column) {
         position = new Point(row, column);
     }
 
-    public void color(Color color) {
-        this.color = color;
-        fireColorChanged();
+    public int getX() {
+        return position.x;
     }
 
-    public Cell[] neighbors() {
-        return board.neighborsOf(position);
+    public void setX(int x) {
+        position.x = x;
+    }
+
+    public int getY() {
+        return position.y;
+    }
+
+    public void setY(int y) {
+        position.y = y;
+    }
+
+    public int getColor() {
+        return color.getRGB();
+    }
+
+    public void setColor(int value) {
+        color = new Color(value);
     }
 }

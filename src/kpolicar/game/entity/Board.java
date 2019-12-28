@@ -3,6 +3,7 @@ package kpolicar.game.entity;
 import kpolicar.Main;
 
 import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.awt.*;
 import java.util.LinkedList;
 
@@ -16,14 +17,13 @@ public class Board {
         cells = new Cell[rows][columns];
         for (int row = 0; row < rows; row++) {
             for (int column = 0; column < columns; column++) {
-                cells[row][column] = new Cell(this, row, column);
+                cells[row][column] = new Cell(row, column);
             }
         }
     }
 
     public Cell[] neighborsOf(Point position) {
         LinkedList<Cell> neighbors = new LinkedList<>();
-
 
         int r = position.x, c = position.y;
         for (int nr = Math.max(0, r - 1); nr <= Math.min(r + 1, cells.length - 1); ++nr){

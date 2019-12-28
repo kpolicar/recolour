@@ -23,19 +23,23 @@ public class ActionHandler {
     }
 
     public void paint(Point position, Color color) {
-        execute(new Paint(game.frame, game.board.cellAt(position), color));
-        game.state.onSave();
+        execute(new Paint(game.frame, game.board, position, color));
+        save();
     }
 
     public void randomize() {
-        execute(new Randomize(game.board, Main.preferences.palette));
+        execute(new Randomize(game.frame, game.board, Main.preferences.palette));
     }
 
-    public void execute(GameAction action) {
-        action.execute();
+    public void save() {
+        execute(new Save(game.board, "output.xml"));
     }
 
     public void load() {
-        game.state.onLoad();
+        execute(new Load(game.frame, game.board, "output.xml"));
+    }
+
+    public void execute(Action action) {
+        action.execute();
     }
 }

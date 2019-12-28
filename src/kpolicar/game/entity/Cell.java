@@ -9,9 +9,7 @@ public class Cell {
     @XmlTransient
     public Point position = new Point();
 
-    Cell() {
-
-    }
+    Cell() {}
     Cell(int row, int column) {
         position = new Point(row, column);
     }

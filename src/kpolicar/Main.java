@@ -8,7 +8,6 @@ import javax.swing.*;
 
 public class Main {
     public static Preferences preferences;
-    static GameFrame mainFrame;
 
     public static void main(String[] args) {
         int rows, columns, variations;
@@ -18,14 +17,8 @@ public class Main {
 
         preferences = new Preferences(rows, columns, variations);
 
-        initGame();
-    }
-
-    private static void initGame() {
-        mainFrame = new GameFrame();
+        GameFrame mainFrame = new GameFrame();
         mainFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        Game game = new Game(mainFrame);
-        game.begin();
+        new Game(mainFrame).begin();
     }
-
 }

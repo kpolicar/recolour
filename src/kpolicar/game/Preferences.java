@@ -10,6 +10,7 @@ public class Preferences {
     public Color[] palette;
     public Color source;
     public Color target;
+    public String savePath = "save.xml";
 
     public Preferences(int rows, int columns, int variations) {
         this.rows = rows;

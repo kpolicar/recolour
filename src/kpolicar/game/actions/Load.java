@@ -10,14 +10,14 @@ import javax.xml.bind.JAXBException;
 import java.io.File;
 
 public class Load implements Action {
+    File file;
     GameFrame gameFrame;
-    String path;
     Board board;
 
-    public Load(GameFrame gameFrame, Board board, String path) {
+    public Load(GameFrame gameFrame, Board board, File file) {
         this.gameFrame = gameFrame;
         this.board = board;
-        this.path = path;
+        this.file = file;
     }
 
     public void execute() {
@@ -42,7 +42,6 @@ public class Load implements Action {
     private Board readBoard() throws JAXBException {
         JAXBContext jaxbContext = JAXBContext.newInstance(board.getClass());
         Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
-        File xml = new File(path);
-        return (Board) unmarshaller.unmarshal(xml);
+        return (Board) unmarshaller.unmarshal(file);
     }
 }

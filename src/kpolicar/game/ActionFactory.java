@@ -7,6 +7,7 @@ import kpolicar.game.actions.Paint;
 import kpolicar.game.entity.Board;
 import kpolicar.ui.GameFrame;
 import java.awt.*;
+import java.io.File;
 
 public class ActionFactory {
     Board board;
@@ -49,10 +50,10 @@ public class ActionFactory {
     }
 
     public Action save() {
-        return new Save(board, "output.xml");
+        return new Save(board, Main.preferences.savePath);
     }
 
-    public Action load() {
-        return new Load(gameFrame, board, "output.xml");
+    public Load load(File file) {
+        return new Load(gameFrame, board, file);
     }
 }

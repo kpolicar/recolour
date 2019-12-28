@@ -8,6 +8,7 @@ import java.awt.event.KeyEvent;
 public class GameMenu extends JMenuBar {
     public JMenuItem newGame;
     public JMenuItem loadGame;
+    public JFileChooser loadGameDialog;
 
     public GameMenu() {
         super();
@@ -15,6 +16,8 @@ public class GameMenu extends JMenuBar {
         JMenu play = new JMenu("Play");
         newGame = new JMenuItem("New game");
         loadGame = new JMenuItem("Load game");
+        loadGameDialog = new JFileChooser();
+        loadGame.addActionListener(e -> loadGameDialog.showOpenDialog(this));
         play.add(newGame);
         play.add(loadGame);
         add(play);

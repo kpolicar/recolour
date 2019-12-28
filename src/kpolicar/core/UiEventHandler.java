@@ -3,9 +3,10 @@ package kpolicar.core;
 import kpolicar.game.ActionHandler;
 import kpolicar.game.Score;
 import kpolicar.game.events.CellEvent;
-import kpolicar.game.ActionFactory;
 import kpolicar.ui.GameFrame;
 import kpolicar.ui.GridButton;
+
+import javax.swing.*;
 import java.util.Arrays;
 import java.util.stream.Stream;
 
@@ -33,6 +34,9 @@ public class UiEventHandler {
 
     private void bindMenu() {
         frame.menu.newGame.addActionListener(e -> actions.restart(score));
-        frame.menu.loadGame.addActionListener(e -> actions.load());
+        frame.menu.loadGameDialog.addActionListener(e -> {
+            JFileChooser fc = (JFileChooser) e.getSource();
+            actions.load(fc.getSelectedFile());
+        });
     }
 }

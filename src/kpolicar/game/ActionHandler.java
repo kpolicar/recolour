@@ -4,6 +4,7 @@ import kpolicar.game.entity.Board;
 import kpolicar.ui.GameFrame;
 
 import java.awt.*;
+import java.io.File;
 
 public class ActionHandler {
     Board board;
@@ -47,7 +48,7 @@ public class ActionHandler {
         factory.save().execute();
     }
 
-    public void load() {
-        factory.load().execute();
+    public void load(File file) {
+        factory.load(file).execute();
     }
 }

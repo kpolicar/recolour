@@ -1,5 +1,7 @@
 package kpolicar.ui;
 
+import kpolicar.ui.listeners.OpenGithub;
+
 import javax.swing.*;
 import java.awt.event.KeyEvent;
 
@@ -29,6 +31,9 @@ public class GameMenu extends JMenuBar {
         add(settings);
 
         JMenu help = new JMenu("Help");
+        JMenuItem repository = new JMenuItem("Github");
+        repository.addActionListener(new OpenGithub());
+        help.add(repository);
         add(help);
     }
 }

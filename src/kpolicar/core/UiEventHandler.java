@@ -28,8 +28,6 @@ public class UiEventHandler {
     }
 
     private void bindMenu() {
-        frame.menu.loadGame.addActionListener(e -> {
-            actions.load();
-        });
+        frame.menu.loadGame.addActionListener(e -> actions.load());
     }
 }

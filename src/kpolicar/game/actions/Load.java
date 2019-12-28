@@ -1,5 +1,6 @@
 package kpolicar.game.actions;
 
+import kpolicar.Main;
 import kpolicar.game.entity.Board;
 import kpolicar.game.entity.Cell;
 import kpolicar.ui.GameFrame;
@@ -34,6 +35,8 @@ public class Load implements Action {
                 gameFrame.buttonAt(cell.position).setBackground(cell.color);
             }
         }
+        Main.preferences.source = Main.preferences.target = null;
+        gameFrame.palette.buttons.forEach((color, jButton) -> jButton.setBorder(null));
     }
 
     private Board readBoard() throws JAXBException {

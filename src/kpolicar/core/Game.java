@@ -6,9 +6,9 @@ import kpolicar.game.entity.Board;
 import kpolicar.ui.GameFrame;
 
 public class Game {
-    public ActionHandler actions;
-    public GameFrame frame;
-    public Board board;
+    final public ActionHandler actions;
+    final public GameFrame frame;
+    final public Board board;
     public Score score = new Score();
 
     public Game(GameFrame frame) {
@@ -17,7 +17,7 @@ public class Game {
         board = new Board();
         actions = new ActionHandler(this);
 
-        new UiEventHandler(this);
+        new UiEventHandler(frame, actions);
     }
 
     public void begin() {

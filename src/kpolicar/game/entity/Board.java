@@ -1,9 +1,14 @@
 package kpolicar.game.entity;
 
 import kpolicar.Main;
+import kpolicar.game.events.CellEvent;
+import kpolicar.ui.GridButton;
+
 import javax.xml.bind.annotation.*;
 import java.awt.*;
+import java.util.Arrays;
 import java.util.LinkedList;
+import java.util.stream.Stream;
 
 @XmlRootElement
 public class Board {
@@ -18,6 +23,14 @@ public class Board {
                 cells[row][column] = new Cell(row, column);
             }
         }
+    }
+
+    public boolean isComplete() {
+        Color color = cells[0][0].color;
+
+        return Stream.of(cells)
+                .flatMap(Arrays::stream)
+                .allMatch(cell -> cell.color == color);
     }
 
     public Cell[] neighborsOf(Point position) {

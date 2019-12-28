@@ -11,9 +11,9 @@ public class UiEventHandler {
     ActionHandler actions;
     GameFrame frame;
 
-    public UiEventHandler(Game game) {
-        this.frame = game.frame;
-        this.actions = game.actions;
+    public UiEventHandler(GameFrame gameFrame, ActionHandler actionHandler) {
+        this.frame = gameFrame;
+        this.actions = actionHandler;
         bindButtons();
         bindMenu();
     }

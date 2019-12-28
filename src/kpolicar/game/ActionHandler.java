@@ -3,7 +3,10 @@ package kpolicar.game;
 import kpolicar.Main;
 import kpolicar.core.Game;
 import kpolicar.game.actions.*;
+import kpolicar.game.actions.Action;
 import kpolicar.game.actions.Paint;
+
+import javax.swing.*;
 import java.awt.*;
 
 public class ActionHandler {
@@ -23,7 +26,16 @@ public class ActionHandler {
 
     public void paint(Point position, Color color) {
         execute(new Paint(game.frame, game.board, position, color));
-        save();
+        if (game.board.isComplete()) {
+            finish();
+        } else {
+            save();
+        }
+    }
+
+    public void finish() {
+        JOptionPane.showMessageDialog(game.frame, "Victory!");
+        randomize();
     }
 
     public void randomize() {

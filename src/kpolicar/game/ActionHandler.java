@@ -1,56 +1,51 @@
 package kpolicar.game;
 
-import kpolicar.Main;
-import kpolicar.core.Game;
-import kpolicar.game.actions.*;
-import kpolicar.game.actions.Action;
-import kpolicar.game.actions.Paint;
+import kpolicar.game.entity.Board;
+import kpolicar.ui.GameFrame;
 
-import javax.swing.*;
 import java.awt.*;
 
 public class ActionHandler {
-    Game game;
+    Board board;
+    ActionFactory factory;
 
-    public ActionHandler(Game game) {
-        this.game = game;
+    public ActionHandler(Board board, GameFrame frame) {
+        this.factory = new ActionFactory(board, frame);
+        this.board = board;
     }
 
     public void assignSource(Point position) {
-        execute(new AssignSource(game.board.cellAt(position).color, game.frame.palette));
+        factory.assignSource(position).execute();
     }
 
     public void assignTarget(Point position) {
-        execute(new AssignTarget(game.board.cellAt(position).color, game.frame.palette));
+        factory.assignTarget(position).execute();
     }
 
     public void paint(Point position, Color color) {
-        execute(new Paint(game.frame, game.board, position, color));
-        if (game.board.isComplete()) {
-            finish();
+        factory.paint(position, color).execute();
+
+        if (board.isComplete()) {
+            factory.victory().execute();
+            factory.restart().execute();
         } else {
-            save();
+            factory.save().execute();
         }
     }
 
-    public void finish() {
-        JOptionPane.showMessageDialog(game.frame, "Victory!");
-        randomize();
+    public void randomize() {
+        factory.randomize().execute();
     }
 
-    public void randomize() {
-        execute(new Randomize(game.frame, game.board, Main.preferences.palette));
+    public void restart() {
+        factory.restart().execute();
     }
 
     public void save() {
-        execute(new Save(game.board, "output.xml"));
+        factory.save().execute();
     }
 
     public void load() {
-        execute(new Load(game.frame, game.board, "output.xml"));
-    }
-
-    public void execute(Action action) {
-        action.execute();
+        factory.load().execute();
     }
 }

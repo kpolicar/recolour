@@ -1,6 +1,6 @@
 package kpolicar.game.entity;
 
-import javax.xml.bind.annotation.XmlTransient;
+import javax.xml.bind.annotation.*;
 import java.awt.*;
 
 public class Cell {
@@ -9,7 +9,9 @@ public class Cell {
     @XmlTransient
     public Point position = new Point();
 
-    Cell() {}
+    Cell() {
+    }
+
     Cell(int row, int column) {
         position = new Point(row, column);
     }

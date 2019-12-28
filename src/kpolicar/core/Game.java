@@ -5,8 +5,6 @@ import kpolicar.game.Score;
 import kpolicar.game.entity.Board;
 import kpolicar.ui.GameFrame;
 
-import javax.xml.bind.JAXBException;
-
 public class Game {
     public ActionHandler actions;
     public GameFrame frame;

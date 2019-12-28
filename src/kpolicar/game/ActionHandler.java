@@ -4,7 +4,6 @@ import kpolicar.Main;
 import kpolicar.core.Game;
 import kpolicar.game.actions.*;
 import kpolicar.game.actions.Paint;
-
 import java.awt.*;
 
 public class ActionHandler {

@@ -1,11 +1,9 @@
 package kpolicar.game.actions;
 
 import kpolicar.Main;
-import kpolicar.game.ActionHandler;
 import kpolicar.game.entity.Board;
 import kpolicar.game.entity.Cell;
 import kpolicar.ui.GameFrame;
-
 import java.awt.*;
 
 public class Paint implements Action, IncrementsScore {

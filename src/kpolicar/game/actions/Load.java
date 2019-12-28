@@ -1,10 +1,8 @@
 package kpolicar.game.actions;
 
-import kpolicar.game.ActionHandler;
 import kpolicar.game.entity.Board;
 import kpolicar.game.entity.Cell;
 import kpolicar.ui.GameFrame;
-
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Unmarshaller;
 import javax.xml.bind.JAXBException;

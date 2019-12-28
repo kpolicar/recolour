@@ -1,9 +1,7 @@
 package kpolicar.game.entity;
 
 import kpolicar.Main;
-
 import javax.xml.bind.annotation.*;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.awt.*;
 import java.util.LinkedList;
 
@@ -26,9 +24,9 @@ public class Board {
         LinkedList<Cell> neighbors = new LinkedList<>();
 
         int r = position.x, c = position.y;
-        for (int nr = Math.max(0, r - 1); nr <= Math.min(r + 1, cells.length - 1); ++nr){
+        for (int nr = Math.max(0, r - 1); nr <= Math.min(r + 1, cells.length - 1); ++nr) {
             for (int nc = Math.max(0, c - 1); nc <= Math.min(c + 1, cells[0].length - 1); ++nc) {
-                if (!(nr==r && nc==c))  {
+                if (!(nr == r && nc == c)) {
                     neighbors.add(cells[nr][nc]);
                 }
             }

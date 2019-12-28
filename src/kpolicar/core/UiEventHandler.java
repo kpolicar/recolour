@@ -1,11 +1,9 @@
 package kpolicar.core;
 
-import kpolicar.game.actions.Load;
 import kpolicar.game.events.CellEvent;
 import kpolicar.game.ActionHandler;
 import kpolicar.ui.GameFrame;
 import kpolicar.ui.GridButton;
-
 import java.util.Arrays;
 import java.util.stream.Stream;
 

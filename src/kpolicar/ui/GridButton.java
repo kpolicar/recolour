@@ -5,7 +5,7 @@ import java.awt.*;
 
 public class GridButton extends JButton {
     public Point position;
-    
+
     public GridButton(int row, int column) {
         super();
         position = new Point(row, column);

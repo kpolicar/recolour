@@ -33,6 +33,7 @@ public class Load implements Action {
             for (int column = 0; column < loaded.cells[row].length; column++) {
                 Cell cell = loaded.cells[row][column];
                 board.cellAt(cell.position).color = cell.color;
+                gameFrame.buttonAt(cell.position).setBackground(cell.color);
             }
         }
     }

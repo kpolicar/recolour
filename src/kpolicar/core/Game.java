@@ -1,6 +1,5 @@
 package kpolicar.core;
 
-import kpolicar.game.ActionFactory;
 import kpolicar.game.ActionHandler;
 import kpolicar.game.Score;
 import kpolicar.game.entity.Board;
@@ -23,6 +22,5 @@ public class Game {
 
     public void begin() {
         actions.randomize();
-        frame.setVisible(true);
     }
 }

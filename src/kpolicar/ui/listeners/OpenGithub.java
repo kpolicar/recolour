@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.net.URI;
 
 public class OpenGithub implements ActionListener {
-    @Override
+
     public void actionPerformed(ActionEvent e) {
         try {
             Desktop.getDesktop().browse(URI.create("https://github.com/kpolicar/recolour"));

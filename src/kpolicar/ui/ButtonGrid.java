@@ -1,13 +1,21 @@
 package kpolicar.ui;
 
+import kpolicar.Main;
+
 import javax.swing.*;
 import java.awt.*;
 
 public class ButtonGrid extends JPanel {
     public GridButton[][] buttons;
 
-    ButtonGrid(int rows, int columns) {
+    ButtonGrid() {
         super();
+        buildGrid();
+    }
+
+    public void buildGrid() {
+        int rows = Main.preferences.rows, columns = Main.preferences.columns;
+
         setLayout(new GridLayout(rows, columns));
 
         buttons = new GridButton[rows][columns];

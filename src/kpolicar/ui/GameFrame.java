@@ -11,15 +11,13 @@ public class GameFrame extends JFrame {
     public PalettePanel palette;
 
     public GameFrame() {
-        int rows = Main.preferences.rows, columns = Main.preferences.columns;
-
         setSize(300, 300);
         setLayout(new BorderLayout());
         setExtendedState(Frame.MAXIMIZED_BOTH);
 
         add(new Label("Heyo"), BorderLayout.PAGE_START);
         add(palette = new PalettePanel(), BorderLayout.LINE_END);
-        add(grid = new ButtonGrid(rows, columns), BorderLayout.CENTER);
+        add(grid = new ButtonGrid(), BorderLayout.CENTER);
 
         setJMenuBar(menu = new GameMenu());
     }

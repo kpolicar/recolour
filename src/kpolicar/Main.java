@@ -7,7 +7,9 @@ import kpolicar.ui.GameFrame;
 import javax.swing.*;
 
 public class Main {
+    public static Game game;
     public static Preferences preferences;
+    static GameFrame mainFrame;
 
     public static void main(String[] args) {
         int rows, columns, variations;
@@ -16,9 +18,20 @@ public class Main {
         variations = Integer.parseInt(args[2]);
 
         preferences = new Preferences(rows, columns, variations);
+        buildGame();
+    }
 
-        GameFrame mainFrame = new GameFrame();
+    protected static void buildGame() {
+        mainFrame = new GameFrame();
         mainFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        new Game(mainFrame).begin();
+        game = new Game(mainFrame);
+        game.begin();
+        mainFrame.setVisible(true);
+    }
+
+    public static void restartGame() {
+        mainFrame.setVisible(false);
+        mainFrame.dispose();
+        buildGame();
     }
 }

@@ -15,6 +15,10 @@ public class Board {
     public Cell[][] cells;
 
     public Board() {
+        buildCells();
+    }
+
+    public void buildCells() {
         int rows = Main.preferences.rows, columns = Main.preferences.columns;
 
         cells = new Cell[rows][columns];

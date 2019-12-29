@@ -1,5 +1,6 @@
 package kpolicar.core;
 
+import kpolicar.Main;
 import kpolicar.game.ActionHandler;
 import kpolicar.game.Score;
 import kpolicar.game.events.CellEvent;
@@ -37,6 +38,10 @@ public class UiEventHandler {
         frame.menu.loadGameDialog.addActionListener(e -> {
             JFileChooser fc = (JFileChooser) e.getSource();
             actions.load(fc.getSelectedFile());
+        });
+        frame.menu.preferences.addApplyListener(e -> {
+            Main.preferences = e.preferences;
+            Main.restartGame();
         });
     }
 }

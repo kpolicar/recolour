@@ -16,6 +16,7 @@ public class Cell {
         position = new Point(row, column);
     }
 
+    @XmlAttribute
     public int getX() {
         return position.x;
     }
@@ -24,6 +25,7 @@ public class Cell {
         position.x = x;
     }
 
+    @XmlAttribute
     public int getY() {
         return position.y;
     }

@@ -28,11 +28,11 @@ public class OpenPreferences implements ActionListener {
                 JOptionPane.PLAIN_MESSAGE);
 
         if (result == JOptionPane.OK_OPTION) {
-            firePreferencesChanged();
+            fireSubmit();
         }
     }
 
-    protected void firePreferencesChanged() {
+    protected void fireSubmit() {
       Object[] listeners = listenerList.getListenerList();
       for (int i = listeners.length-2; i>=0; i-=2) {
           if (listeners[i]==PreferencesListener.class) {
@@ -41,11 +41,11 @@ public class OpenPreferences implements ActionListener {
       }
   }
 
-    public void addApplyListener(PreferencesListener l) {
+    public void addSubmitListener(PreferencesListener l) {
         listenerList.add(PreferencesListener.class, l);
     }
 
-    public void removeApplyListener(PreferencesListener l) {
+    public void removeSubmitListener(PreferencesListener l) {
         listenerList.remove(PreferencesListener.class, l);
     }
 }

@@ -39,7 +39,7 @@ public class UiEventHandler {
             JFileChooser fc = (JFileChooser) e.getSource();
             actions.load(fc.getSelectedFile());
         });
-        frame.menu.preferences.addApplyListener(e -> {
+        frame.menu.preferences.addSubmitListener(e -> {
             Main.preferences = e.preferences;
             Main.restartGame();
         });

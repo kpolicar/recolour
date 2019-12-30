@@ -11,10 +11,12 @@ import java.io.File;
 
 public class ActionFactory {
     Board board;
+    Match match;
     GameFrame gameFrame;
 
-    public ActionFactory(Board board, GameFrame gameFrame) {
-        this.board = board;
+    public ActionFactory(Match match, GameFrame gameFrame) {
+        this.match = match;
+        this.board = match.board;
         this.gameFrame = gameFrame;
     }
 
@@ -50,7 +52,7 @@ public class ActionFactory {
     }
 
     public Action save() {
-        return new Save(board, Main.preferences.savePath);
+        return new Save(match, Main.preferences.savePath);
     }
 
     public Load load(File file) {

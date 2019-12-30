@@ -1,5 +1,6 @@
 package kpolicar.game.actions;
 
+import kpolicar.game.Match;
 import kpolicar.game.entity.Board;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -8,20 +9,20 @@ import java.io.File;
 
 public class Save implements Action {
     String path;
-    Board board;
+    Match match;
 
-    public Save(Board board, String path) {
-        this.board = board;
+    public Save(Match match, String path) {
+        this.match = match;
         this.path = path;
     }
 
     public void execute() {
         JAXBContext jaxbContext = null;
         try {
-            jaxbContext = JAXBContext.newInstance(board.getClass());
+            jaxbContext = JAXBContext.newInstance(match.getClass());
             Marshaller marshaller = jaxbContext.createMarshaller();
             marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
-            marshaller.marshal(board, new File(path));
+            marshaller.marshal(match, new File(path));
         } catch (JAXBException e) {
             e.printStackTrace();
         }

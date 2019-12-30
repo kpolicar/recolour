@@ -11,10 +11,10 @@ public class ActionHandler {
     ActionFactory factory;
     Score score;
 
-    public ActionHandler(Board board, GameFrame frame, Score score) {
-        this.factory = new ActionFactory(board, frame);
-        this.board = board;
-        this.score = score;
+    public ActionHandler(Match match, GameFrame gameFrame) {
+        this.factory = new ActionFactory(match, gameFrame);
+        this.board = match.board;
+        this.score = match.score;
     }
 
     public void assignSource(Point position) {

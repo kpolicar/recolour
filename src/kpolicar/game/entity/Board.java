@@ -1,16 +1,11 @@
 package kpolicar.game.entity;
 
 import kpolicar.Main;
-import kpolicar.game.events.CellEvent;
-import kpolicar.ui.GridButton;
-
-import javax.xml.bind.annotation.*;
 import java.awt.*;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.stream.Stream;
 
-@XmlRootElement
 public class Board {
     public Cell[][] cells;
 

@@ -1,26 +1,21 @@
 package kpolicar.core;
 
-import kpolicar.game.ActionHandler;
-import kpolicar.game.Score;
-import kpolicar.game.entity.Board;
+import kpolicar.Main;
+import kpolicar.game.Match;
 import kpolicar.ui.GameFrame;
 
 public class Game {
-    final public ActionHandler actions;
     final public GameFrame frame;
-    final public Board board;
-    final public Score score = new Score();
+    public Match match;
 
     public Game(GameFrame frame) {
         this.frame = frame;
+        match = new Match(Main.preferences, frame);
 
-        board = new Board();
-        actions = new ActionHandler(board, frame, score);
-
-        new UiEventHandler(frame, actions, score);
+        new UiEventHandler(frame, match.actions, match.score);
     }
 
     public void begin() {
-        actions.randomize();
+        match.begin();
     }
 }

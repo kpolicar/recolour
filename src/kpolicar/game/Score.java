@@ -1,7 +1,7 @@
 package kpolicar.game;
 
 public class Score {
-    private int moves = 0;
+    public int moves = 0;
 
     public void increment() {
         moves++;

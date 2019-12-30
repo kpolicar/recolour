@@ -1,7 +1,6 @@
 package kpolicar.game.events;
 
 import kpolicar.Main;
-import kpolicar.game.ActionFactory;
 import kpolicar.game.ActionHandler;
 
 import java.awt.*;

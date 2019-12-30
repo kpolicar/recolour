@@ -1,62 +1,28 @@
 package kpolicar.game;
 
 import kpolicar.Main;
-import kpolicar.game.actions.*;
-import kpolicar.game.actions.Action;
-import kpolicar.game.actions.Paint;
-import kpolicar.game.entity.Board;
-import kpolicar.ui.GameFrame;
+import kpolicar.core.game.actions.*;
+import kpolicar.core.game.actions.Paint;
 
 import java.awt.*;
 import java.io.File;
 
-public class ActionFactory {
-    Board board;
-    Match match;
-    GameFrame gameFrame;
+public interface ActionFactory {
+    Action assignSource(Point position);
 
-    public ActionFactory(Match match, GameFrame gameFrame) {
-        this.match = match;
-        this.board = match.board;
-        this.gameFrame = gameFrame;
-    }
+    Action assignTarget(Point position);
 
-    public Action assignSource(Point position) {
-        return new AssignSource(board.cellAt(position).color, gameFrame.palette);
-    }
+    Action reset(Score score);
 
-    public Action assignTarget(Point position) {
-        return new AssignTarget(board.cellAt(position).color, gameFrame.palette);
-    }
+    Action paint(Point position, Color color, Score score);
 
-    public Action reset(Score score) {
-        return new Reset(gameFrame.palette, score);
-    }
+    Action victory(Score score);
 
-    public Action paint(Point position, Color color, Score score) {
-        return new Paint(gameFrame, board, position, color, score);
-    }
+    Action randomize();
 
-    public Action victory(Score score) {
-        return new Victory(gameFrame, score);
-    }
+    Action restart(Score score);
 
-    public Action randomize() {
-        return new Randomize(gameFrame, board, Main.preferences.palette);
-    }
+    Action save();
 
-    public Action restart(Score score) {
-        return () -> {
-            randomize().execute();
-            reset(score).execute();
-        };
-    }
-
-    public Action save() {
-        return new Save(match, Main.preferences.savePath);
-    }
-
-    public Load load(File file) {
-        return new Load(gameFrame, board, file);
-    }
+    Action load(File file);
 }

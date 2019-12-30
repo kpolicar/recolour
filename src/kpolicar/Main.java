@@ -18,13 +18,17 @@ public class Main {
         variations = Integer.parseInt(args[2]);
 
         preferences = new Preferences(rows, columns, variations);
-        buildGame();
+        buildFrame();
+        startGame();
     }
 
-    protected static void buildGame() {
+    protected static void buildFrame() {
         mainFrame = new GameFrame();
         mainFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        game = new Game(mainFrame);
+    }
+
+    protected static void startGame() {
+        game = new Game(mainFrame, preferences);
         game.begin();
         mainFrame.setVisible(true);
     }
@@ -32,6 +36,6 @@ public class Main {
     public static void restartGame() {
         mainFrame.setVisible(false);
         mainFrame.dispose();
-        buildGame();
+        startGame();
     }
 }

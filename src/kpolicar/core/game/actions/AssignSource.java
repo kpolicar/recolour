@@ -1,4 +1,4 @@
-package kpolicar.game.actions;
+package kpolicar.core.game.actions;
 
 import kpolicar.Main;
 import kpolicar.ui.PalettePanel;

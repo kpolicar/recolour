@@ -1,4 +1,4 @@
-package kpolicar.game.actions;
+package kpolicar.core.game.actions;
 
 public interface Action {
     void execute();

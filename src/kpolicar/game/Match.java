@@ -1,27 +1,21 @@
 package kpolicar.game;
 
 import kpolicar.game.entity.Board;
-import kpolicar.ui.GameFrame;
 
 import javax.xml.bind.annotation.*;
-import java.awt.*;
 
 @XmlRootElement
 public class Match {
     @XmlTransient
-    public ActionHandler actions;
-    public Board board;
-    public Score score = new Score();
-    public Preferences preferences;
+    final public ActionHandler actions;
+    final public Board board;
+    final public Preferences preferences;
+    final public Score score = new Score();
 
-    Match() {
-
-    }
-
-    public Match(Preferences preferences, GameFrame gameFrame) {
-        board = new Board();
-        actions = new ActionHandler(this, gameFrame);
+    public Match(Preferences preferences, ActionFactory factory) {
+        board = new Board(preferences.rows, preferences.columns);
         this.preferences = preferences;
+        actions = new ActionHandler(this, factory, score);
     }
 
     public void begin() {

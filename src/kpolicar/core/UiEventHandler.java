@@ -14,18 +14,18 @@ import java.util.stream.Stream;
 public class UiEventHandler {
     Score score;
     ActionHandler actions;
-    GameFrame frame;
+    GameFrame gameFrame;
 
-    public UiEventHandler(GameFrame gameFrame, ActionHandler actions, Score score) {
-        this.frame = gameFrame;
-        this.actions = actions;
-        this.score = score;
+    public UiEventHandler(Game game) {
+        this.gameFrame = game.frame;
+        this.actions = game.match.actions;
+        this.score = game.match.score;
         bindButtons();
         bindMenu();
     }
 
     private void bindButtons() {
-        Stream.of(frame.grid.buttons)
+        Stream.of(gameFrame.grid.buttons)
                 .flatMap(Arrays::stream)
                 .forEach(o -> o.addActionListener(e -> {
                     GridButton button = (GridButton) e.getSource();
@@ -34,12 +34,12 @@ public class UiEventHandler {
     }
 
     private void bindMenu() {
-        frame.menu.newGame.addActionListener(e -> actions.restart(score));
-        frame.menu.loadGameDialog.addActionListener(e -> {
+        gameFrame.menu.newGame.addActionListener(e -> actions.restart(score));
+        gameFrame.menu.loadGameDialog.addActionListener(e -> {
             JFileChooser fc = (JFileChooser) e.getSource();
             actions.load(fc.getSelectedFile());
         });
-        frame.menu.preferences.addSubmitListener(e -> {
+        gameFrame.menu.preferences.addSubmitListener(e -> {
             Main.preferences = e.preferences;
             Main.restartGame();
         });

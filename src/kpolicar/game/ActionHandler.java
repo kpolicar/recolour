@@ -1,20 +1,17 @@
 package kpolicar.game;
 
-import kpolicar.game.entity.Board;
-import kpolicar.ui.GameFrame;
-
 import java.awt.*;
 import java.io.File;
 
 public class ActionHandler {
-    Board board;
+    Match match;
     ActionFactory factory;
     Score score;
 
-    public ActionHandler(Match match, GameFrame gameFrame) {
-        this.factory = new ActionFactory(match, gameFrame);
-        this.board = match.board;
-        this.score = match.score;
+    public ActionHandler(Match match, ActionFactory factory, Score score) {
+        this.match = match;
+        this.factory = factory;
+        this.score = score;
     }
 
     public void assignSource(Point position) {
@@ -28,7 +25,7 @@ public class ActionHandler {
     public void paint(Point position, Color color) {
         factory.paint(position, color, score).execute();
 
-        if (board.isComplete()) {
+        if (match.board.isComplete()) {
             factory.victory(score).execute();
             factory.restart(score).execute();
         } else {

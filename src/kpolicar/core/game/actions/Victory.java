@@ -1,6 +1,5 @@
-package kpolicar.game.actions;
+package kpolicar.core.game.actions;
 
-import kpolicar.game.ActionFactory;
 import kpolicar.game.Score;
 import kpolicar.ui.GameFrame;
 

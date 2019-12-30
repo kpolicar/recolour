@@ -1,18 +1,21 @@
 package kpolicar.core;
 
-import kpolicar.Main;
+import kpolicar.core.game.ActionFactory;
+import kpolicar.core.game.EventHandler;
 import kpolicar.game.Match;
+import kpolicar.game.Preferences;
 import kpolicar.ui.GameFrame;
 
 public class Game {
     final public GameFrame frame;
     public Match match;
 
-    public Game(GameFrame frame) {
+    public Game(GameFrame frame, Preferences preferences) {
         this.frame = frame;
-        match = new Match(Main.preferences, frame);
+        match = new Match(preferences, new ActionFactory(this));
 
-        new UiEventHandler(frame, match.actions, match.score);
+        new UiEventHandler(this);
+        new EventHandler(this);
     }
 
     public void begin() {

@@ -1,7 +1,7 @@
 package kpolicar.game.actions;
 
 import kpolicar.game.Match;
-import kpolicar.game.entity.Board;
+
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;

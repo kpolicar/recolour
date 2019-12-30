@@ -1,5 +1,6 @@
 package kpolicar.game;
 
+import javax.xml.bind.annotation.*;
 import java.awt.*;
 import java.util.Random;
 
@@ -7,9 +8,12 @@ public class Preferences {
     public int columns;
     public int rows;
 
+    @XmlElementWrapper(name = "palette")
+    @XmlElement(name = "color")
     public Color[] palette;
     public Color source;
     public Color target;
+    @XmlTransient
     public String savePath = "save.xml";
 
     public Preferences(int rows, int columns, int variations) {

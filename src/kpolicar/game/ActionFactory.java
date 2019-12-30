@@ -6,6 +6,7 @@ import kpolicar.game.actions.Action;
 import kpolicar.game.actions.Paint;
 import kpolicar.game.entity.Board;
 import kpolicar.ui.GameFrame;
+
 import java.awt.*;
 import java.io.File;
 

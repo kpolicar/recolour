@@ -33,13 +33,13 @@ public class OpenPreferences implements ActionListener {
     }
 
     protected void fireSubmit() {
-      Object[] listeners = listenerList.getListenerList();
-      for (int i = listeners.length-2; i>=0; i-=2) {
-          if (listeners[i]==PreferencesListener.class) {
-              ((PreferencesListener)listeners[i+1]).preferencesChanged(new PreferencesChanged(form));
-          }
-      }
-  }
+        Object[] listeners = listenerList.getListenerList();
+        for (int i = listeners.length - 2; i >= 0; i -= 2) {
+            if (listeners[i] == PreferencesListener.class) {
+                ((PreferencesListener) listeners[i + 1]).preferencesChanged(new PreferencesChanged(form));
+            }
+        }
+    }
 
     public void addSubmitListener(PreferencesListener l) {
         listenerList.add(PreferencesListener.class, l);

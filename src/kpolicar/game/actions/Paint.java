@@ -5,6 +5,7 @@ import kpolicar.game.Score;
 import kpolicar.game.entity.Board;
 import kpolicar.game.entity.Cell;
 import kpolicar.ui.GameFrame;
+
 import java.awt.*;
 
 public class Paint implements Action {

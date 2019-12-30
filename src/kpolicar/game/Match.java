@@ -2,7 +2,9 @@ package kpolicar.game;
 
 import kpolicar.game.entity.Board;
 import kpolicar.ui.GameFrame;
+
 import javax.xml.bind.annotation.*;
+import java.awt.*;
 
 @XmlRootElement
 public class Match {
@@ -12,7 +14,8 @@ public class Match {
     public Score score = new Score();
     public Preferences preferences;
 
-    public Match() {
+    Match() {
+
     }
 
     public Match(Preferences preferences, GameFrame gameFrame) {

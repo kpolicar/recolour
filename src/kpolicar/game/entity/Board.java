@@ -1,6 +1,8 @@
 package kpolicar.game.entity;
 
 import kpolicar.Main;
+
+import javax.xml.bind.annotation.XmlElement;
 import java.awt.*;
 import java.util.Arrays;
 import java.util.LinkedList;

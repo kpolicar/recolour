@@ -6,6 +6,9 @@ public class Point {
     @XmlAttribute
     public int x,y;
 
+    public Point() {
+    }
+
     public Point(java.awt.Point original) {
         x = original.x;
         y = original.y;

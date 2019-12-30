@@ -1,10 +1,8 @@
 package kpolicar.core.game.actions;
 
 import kpolicar.Main;
-import kpolicar.game.entity.Board;
-import kpolicar.game.entity.Cell;
-import kpolicar.ui.GameFrame;
-
+import kpolicar.core.Game;
+import kpolicar.xml.adapter.MatchAdapter;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Unmarshaller;
 import javax.xml.bind.JAXBException;
@@ -12,37 +10,29 @@ import java.io.File;
 
 public class Load implements Action {
     File file;
-    GameFrame gameFrame;
-    Board board;
+    Game game;
 
-    public Load(GameFrame gameFrame, Board board, File file) {
-        this.gameFrame = gameFrame;
-        this.board = board;
+    public Load(Game game, File file) {
+        this.game = game;
         this.file = file;
     }
 
     public void execute() {
-        Board loaded = null;
+        Game loaded = null;
         try {
-            loaded = readBoard();
+            loaded = readGame();
+            Main.preferences = loaded.match.preferences;
+            game.match = loaded.match;
+            game.begin();
         } catch (JAXBException e) {
             e.printStackTrace();
         }
-
-        for (int row = 0; row < loaded.cells.length; row++) {
-            for (int column = 0; column < loaded.cells[row].length; column++) {
-                Cell cell = loaded.cells[row][column];
-                board.cellAt(cell.position).color = cell.color;
-                gameFrame.buttonAt(cell.position).setBackground(cell.color);
-            }
-        }
-        Main.preferences.source = Main.preferences.target = null;
-        gameFrame.palette.buttons.forEach((color, jButton) -> jButton.setBorder(null));
     }
 
-    private Board readBoard() throws JAXBException {
-        JAXBContext jaxbContext = JAXBContext.newInstance(board.getClass());
+    private Game readGame() throws JAXBException {
+        JAXBContext jaxbContext = JAXBContext.newInstance(game.getClass());
         Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
-        return (Board) unmarshaller.unmarshal(file);
+        unmarshaller.setAdapter(MatchAdapter.class, new MatchAdapter(game));
+        return (Game) unmarshaller.unmarshal(file);
     }
 }

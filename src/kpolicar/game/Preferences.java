@@ -16,6 +16,9 @@ public class Preferences {
     @XmlTransient
     public String savePath = "save.xml";
 
+    public Preferences() {
+    }
+
     public Preferences(int rows, int columns, int variations) {
         this.rows = rows;
         this.columns = columns;

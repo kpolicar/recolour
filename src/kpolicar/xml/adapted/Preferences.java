@@ -1,4 +1,4 @@
-package kpolicar.game.adapted;
+package kpolicar.xml.adapted;
 
 import javax.xml.bind.annotation.*;
 import java.awt.*;

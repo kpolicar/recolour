@@ -8,6 +8,10 @@ import java.util.stream.Stream;
 public class Board {
     final public Cell[][] cells;
 
+    public Board(Cell[][] cells) {
+        this.cells = cells;
+    }
+
     public Board(int rows, int columns) {
         cells = new Cell[rows][columns];
         for (int row = 0; row < rows; row++) {

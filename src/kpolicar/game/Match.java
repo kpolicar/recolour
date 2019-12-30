@@ -1,10 +1,12 @@
 package kpolicar.game;
 
+import kpolicar.xml.adapter.MatchAdapter;
 import kpolicar.game.entity.Board;
 
 import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
-@XmlRootElement
+@XmlJavaTypeAdapter(MatchAdapter.class)
 public class Match {
     @XmlTransient
     final public ActionHandler actions;
@@ -13,7 +15,11 @@ public class Match {
     final public Score score = new Score();
 
     public Match(Preferences preferences, ActionFactory factory) {
-        board = new Board(preferences.rows, preferences.columns);
+        this(new Board(preferences.rows, preferences.columns), preferences, factory);
+    }
+
+    public Match(Board board, Preferences preferences, ActionFactory factory) {
+        this.board = board;
         this.preferences = preferences;
         actions = new ActionHandler(this, factory, score);
     }

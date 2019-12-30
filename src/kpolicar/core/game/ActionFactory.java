@@ -49,10 +49,10 @@ public class ActionFactory implements kpolicar.game.ActionFactory {
     }
 
     public Action save() {
-        return new Save(game.match, Main.preferences.savePath);
+        return new Save(game, Main.preferences.savePath);
     }
 
     public Load load(File file) {
-        return new Load(game.frame, game.match.board, file);
+        return new Load(game, file);
     }
 }

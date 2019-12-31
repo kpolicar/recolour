@@ -21,9 +21,7 @@ public class Load implements Action {
         Game loaded = null;
         try {
             loaded = readGame();
-            Main.preferences = loaded.match.preferences;
-            game.match = loaded.match;
-            game.begin();
+            game.begin(loaded.match);
         } catch (JAXBException e) {
             e.printStackTrace();
         }

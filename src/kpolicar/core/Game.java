@@ -1,10 +1,10 @@
 package kpolicar.core;
 
+import kpolicar.Main;
 import kpolicar.core.game.ActionFactory;
 import kpolicar.game.Match;
 import kpolicar.game.Preferences;
 import kpolicar.ui.GameFrame;
-
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -26,5 +26,11 @@ public class Game {
 
     public void begin() {
         match.begin();
+    }
+
+    public void begin(Match match) {
+        Main.preferences = match.preferences;
+        this.match = match;
+        match.actions.repaint();
     }
 }

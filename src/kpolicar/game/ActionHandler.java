@@ -37,6 +37,10 @@ public class ActionHandler {
         factory.randomize().execute();
     }
 
+    public void repaint() {
+        factory.repaint().execute();
+    }
+
     public void restart(Score score) {
         factory.restart(score).execute();
     }

@@ -41,6 +41,10 @@ public class ActionFactory implements kpolicar.game.ActionFactory {
         return new Randomize(game.frame, game.match.board, Main.preferences.palette);
     }
 
+    public Action repaint() {
+        return new Repaint(game.frame, game.match.board);
+    }
+
     public Action restart(Score score) {
         return () -> {
             randomize().execute();

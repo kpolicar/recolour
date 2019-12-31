@@ -20,6 +20,8 @@ public interface ActionFactory {
 
     Action randomize();
 
+    Action repaint();
+
     Action restart(Score score);
 
     Action save();

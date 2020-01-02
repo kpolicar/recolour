@@ -11,8 +11,8 @@ import kpolicar.game.Match;
 import kpolicar.xml.adapter.BoardAdapter;
 import kpolicar.xml.adapter.CellAdapter;
 import kpolicar.xml.adapter.MatchAdapter;
-import kpolicar.utils.adapter.ColorAdapter;
-import kpolicar.utils.adapter.PointAdapter;
+import kpolicar.xml.adapter.ColorAdapter;
+import kpolicar.xml.adapter.PointAdapter;
 
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapters;

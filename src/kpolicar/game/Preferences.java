@@ -13,8 +13,6 @@ public class Preferences {
     public Color[] palette;
     public Color source;
     public Color target;
-    @XmlTransient
-    public String savePath = "save.xml";
 
     public Preferences() {
     }

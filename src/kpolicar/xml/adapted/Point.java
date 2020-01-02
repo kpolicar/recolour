@@ -1,4 +1,4 @@
-package kpolicar.utils.adapted;
+package kpolicar.xml.adapted;
 
 import javax.xml.bind.annotation.XmlAttribute;
 

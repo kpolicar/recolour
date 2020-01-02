@@ -2,6 +2,7 @@ package kpolicar.core.game;
 
 import kpolicar.Main;
 import kpolicar.core.Game;
+import kpolicar.core.Settings;
 import kpolicar.game.Match;
 import kpolicar.game.Score;
 import kpolicar.core.game.actions.*;
@@ -54,7 +55,7 @@ public class ActionFactory implements kpolicar.game.ActionFactory {
     }
 
     public Action save() {
-        return new Save(game, Main.preferences.savePath);
+        return new Save(game, Settings.savePath);
     }
 
     public Load load(File file) {

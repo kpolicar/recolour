@@ -1,7 +1,7 @@
 package kpolicar.core.game.actions;
 
-import kpolicar.Main;
 import kpolicar.core.Game;
+import kpolicar.game.Action;
 import kpolicar.xml.adapter.MatchAdapter;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Unmarshaller;

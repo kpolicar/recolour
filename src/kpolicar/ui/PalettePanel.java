@@ -8,11 +8,13 @@ import java.awt.*;
 import java.util.HashMap;
 
 public class PalettePanel extends JPanel {
+    ActionHandler actions;
     public HashMap<Color, JButton> buttons = new HashMap<>();
 
-    PalettePanel() {
+    PalettePanel(ActionHandler actions) {
         super();
 
+        this.actions = actions;
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         add(new JLabel("Available colors"));
         addColors();
@@ -30,6 +32,7 @@ public class PalettePanel extends JPanel {
             } else if (color.equals(Main.preferences.target)) {
                 button.setBorder(Settings.targetBorder);
             }
+            button.addActionListener(e -> actions.highlight(color));
             add(button);
         }
     }

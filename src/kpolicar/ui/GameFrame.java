@@ -1,7 +1,5 @@
 package kpolicar.ui;
 
-import kpolicar.Main;
-
 import javax.swing.*;
 import java.awt.*;
 
@@ -9,13 +7,14 @@ public class GameFrame extends JFrame {
     public GameMenu menu;
     public ButtonGrid grid;
     public PalettePanel palette;
+    ActionHandler actions = new ActionHandler(this);
 
     public GameFrame() {
         setSize(300, 300);
         setLayout(new BorderLayout());
         setExtendedState(Frame.MAXIMIZED_BOTH);
 
-        setJMenuBar(menu = new GameMenu());
+        setJMenuBar(menu = new GameMenu(actions));
         add(new Label("Heyo"), BorderLayout.PAGE_START);
         makeGameFields();
     }
@@ -29,7 +28,7 @@ public class GameFrame extends JFrame {
         }
 
         add(grid = new ButtonGrid(), BorderLayout.CENTER);
-        add(palette = new PalettePanel(), BorderLayout.LINE_END);
+        add(palette = new PalettePanel(actions), BorderLayout.LINE_END);
         validate();
     }
 

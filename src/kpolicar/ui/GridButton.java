@@ -1,5 +1,7 @@
 package kpolicar.ui;
 
+import kpolicar.core.Settings;
+
 import javax.swing.*;
 import javax.swing.border.EtchedBorder;
 import java.awt.*;
@@ -11,7 +13,7 @@ public class GridButton extends JButton {
         super();
         position = new Point(row, column);
 
-        setBorder(BorderFactory.createEtchedBorder(EtchedBorder.LOWERED));
+        setBorder(Settings.border);
         setOpaque(true);
         setBackground(Color.BLUE);
         setForeground(Color.WHITE);

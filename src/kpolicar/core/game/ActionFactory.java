@@ -3,10 +3,9 @@ package kpolicar.core.game;
 import kpolicar.Main;
 import kpolicar.core.Game;
 import kpolicar.core.Settings;
-import kpolicar.game.Match;
 import kpolicar.game.Score;
 import kpolicar.core.game.actions.*;
-import kpolicar.core.game.actions.Action;
+import kpolicar.game.Action;
 import kpolicar.core.game.actions.Paint;
 
 import java.awt.*;

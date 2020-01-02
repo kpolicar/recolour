@@ -1,14 +1,14 @@
-package kpolicar.ui.listeners;
+package kpolicar.ui.actions;
+
+import kpolicar.ui.Action;
 
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.net.URI;
 
-public class OpenGithub implements ActionListener {
+public class OpenGithub implements Action {
 
-    public void actionPerformed(ActionEvent e) {
+    public void execute() {
         try {
             Desktop.getDesktop().browse(URI.create("https://github.com/kpolicar/recolour"));
         } catch (IOException ex) {

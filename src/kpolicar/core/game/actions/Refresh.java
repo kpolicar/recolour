@@ -1,8 +1,7 @@
 package kpolicar.core.game.actions;
 
-import kpolicar.Main;
 import kpolicar.core.Game;
-import kpolicar.ui.PalettePanel;
+import kpolicar.game.Action;
 
 import java.awt.*;
 import java.util.Arrays;

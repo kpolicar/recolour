@@ -1,6 +1,7 @@
 package kpolicar.core.game.actions;
 
 import kpolicar.Main;
+import kpolicar.game.Action;
 import kpolicar.game.Score;
 import kpolicar.game.entity.Board;
 import kpolicar.game.entity.Cell;

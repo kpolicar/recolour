@@ -2,20 +2,21 @@ package kpolicar.ui;
 
 import kpolicar.core.Settings;
 import kpolicar.ui.listeners.OpenPreferences;
-import kpolicar.ui.listeners.OpenGithub;
 
 import javax.swing.*;
 import java.awt.event.KeyEvent;
 
 public class GameMenu extends JMenuBar {
+    ActionHandler actions;
     public JMenuItem newGame;
     public JMenuItem loadGame;
     public JFileChooser loadGameDialog;
     public OpenPreferences preferences;
 
-    public GameMenu() {
+    public GameMenu(ActionHandler actions) {
         super();
 
+        this.actions = actions;
         JMenu play = new JMenu("Play");
         newGame = new JMenuItem("New game");
         loadGame = new JMenuItem("Load game");
@@ -45,7 +46,7 @@ public class GameMenu extends JMenuBar {
 
         JMenu help = new JMenu("Help");
         JMenuItem repository = new JMenuItem("Github");
-        repository.addActionListener(new OpenGithub());
+        repository.addActionListener(e -> this.actions.github());
         help.add(repository);
         add(help);
     }

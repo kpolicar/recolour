@@ -2,9 +2,9 @@ package kpolicar.core.game.actions;
 
 import kpolicar.Main;
 import kpolicar.core.Settings;
+import kpolicar.game.Action;
 import kpolicar.ui.PalettePanel;
 
-import javax.swing.border.LineBorder;
 import java.awt.*;
 
 public class AssignTarget implements Action {

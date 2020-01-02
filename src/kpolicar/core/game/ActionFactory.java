@@ -2,6 +2,7 @@ package kpolicar.core.game;
 
 import kpolicar.Main;
 import kpolicar.core.Game;
+import kpolicar.game.Match;
 import kpolicar.game.Score;
 import kpolicar.core.game.actions.*;
 import kpolicar.core.game.actions.Action;
@@ -25,8 +26,8 @@ public class ActionFactory implements kpolicar.game.ActionFactory {
         return new AssignTarget(game.match.board.cellAt(position).color, game.frame.palette);
     }
 
-    public Action reset(Score score) {
-        return new Reset(game.frame.palette, score);
+    public Action reset() {
+        return new Reset(game.frame.palette, game.match.score);
     }
 
     public Action paint(Point position, Color color, Score score) {
@@ -41,14 +42,14 @@ public class ActionFactory implements kpolicar.game.ActionFactory {
         return new Randomize(game.frame, game.match.board, Main.preferences.palette);
     }
 
-    public Action repaint() {
-        return new Repaint(game.frame, game.match.board);
+    public Action refresh() {
+        return new Refresh(game);
     }
 
-    public Action restart(Score score) {
+    public Action restart() {
         return () -> {
             randomize().execute();
-            reset(score).execute();
+            reset().execute();
         };
     }
 

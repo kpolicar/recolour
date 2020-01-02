@@ -17,10 +17,17 @@ public class Game {
     public Game() {
     }
 
-    public Game(GameFrame frame, Preferences preferences) {
+    public Game(GameFrame frame) {
         this.frame = frame;
-        match = new Match(preferences, new ActionFactory(this));
+    }
 
+    public void prepare(Preferences preferences) {
+        prepare(new Match(preferences, new ActionFactory(this)));
+    }
+
+    public void prepare(Match match) {
+        Main.preferences = match.preferences;
+        this.match = match;
         new UiEventHandler(this);
     }
 
@@ -28,9 +35,7 @@ public class Game {
         match.begin();
     }
 
-    public void begin(Match match) {
-        Main.preferences = match.preferences;
-        this.match = match;
-        match.actions.repaint();
+    public void resume() {
+        match.resume();
     }
 }

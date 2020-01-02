@@ -27,7 +27,8 @@ public class ActionHandler {
 
         if (match.board.isComplete()) {
             factory.victory(score).execute();
-            factory.restart(score).execute();
+            factory.restart().execute();
+            match.begin();
         } else {
             factory.save().execute();
         }
@@ -37,12 +38,8 @@ public class ActionHandler {
         factory.randomize().execute();
     }
 
-    public void repaint() {
-        factory.repaint().execute();
-    }
-
-    public void restart(Score score) {
-        factory.restart(score).execute();
+    public void refresh() {
+        factory.refresh().execute();
     }
 
     public void save() {
@@ -51,5 +48,9 @@ public class ActionHandler {
 
     public void load(File file) {
         factory.load(file).execute();
+    }
+
+    public void restart() {
+        factory.restart().execute();
     }
 }

@@ -28,7 +28,8 @@ public class Main {
     }
 
     protected static void startGame() {
-        game = new Game(mainFrame, preferences);
+        game = new Game(mainFrame);
+        game.prepare(preferences);
         game.begin();
         mainFrame.setVisible(true);
     }

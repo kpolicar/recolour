@@ -25,6 +25,11 @@ public class Match {
     }
 
     public void begin() {
+        score.reset();
         actions.randomize();
+    }
+
+    public void resume() {
+        actions.refresh();
     }
 }

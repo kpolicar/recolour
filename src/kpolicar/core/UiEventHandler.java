@@ -34,7 +34,7 @@ public class UiEventHandler {
     }
 
     private void bindMenu() {
-        gameFrame.menu.newGame.addActionListener(e -> actions.restart(score));
+        gameFrame.menu.newGame.addActionListener(e -> actions.restart());
         gameFrame.menu.loadGameDialog.addActionListener(e -> {
             JFileChooser fc = (JFileChooser) e.getSource();
             actions.load(fc.getSelectedFile());

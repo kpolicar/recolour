@@ -1,9 +1,6 @@
 package kpolicar.game;
 
-import kpolicar.Main;
 import kpolicar.core.game.actions.*;
-import kpolicar.core.game.actions.Paint;
-
 import java.awt.*;
 import java.io.File;
 
@@ -12,7 +9,7 @@ public interface ActionFactory {
 
     Action assignTarget(Point position);
 
-    Action reset(Score score);
+    Action reset();
 
     Action paint(Point position, Color color, Score score);
 
@@ -20,9 +17,9 @@ public interface ActionFactory {
 
     Action randomize();
 
-    Action repaint();
+    Action refresh();
 
-    Action restart(Score score);
+    Action restart();
 
     Action save();
 

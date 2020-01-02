@@ -1,5 +1,6 @@
 package kpolicar.ui;
 
+import kpolicar.core.Settings;
 import kpolicar.ui.listeners.OpenPreferences;
 import kpolicar.ui.listeners.OpenGithub;
 
@@ -26,8 +27,10 @@ public class GameMenu extends JMenuBar {
 
         JMenu settings = new JMenu("Settings");
         JMenuItem preferences = new JMenuItem("Preferences");
-        JMenuItem autosave = new JCheckBoxMenuItem("Enable autosave");
+        JMenuItem autosave = new JCheckBoxMenuItem("Enable autosave", Settings.autosave);
+        autosave.setEnabled(false);
         JMenuItem save = new JMenuItem("Save");
+        save.setEnabled(false);
         KeyStroke keyStrokeToSave = KeyStroke.getKeyStroke(KeyEvent.VK_S, KeyEvent.CTRL_DOWN_MASK);
         save.setAccelerator(keyStrokeToSave);
 

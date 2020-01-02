@@ -12,6 +12,7 @@ import java.util.Arrays;
 import java.util.stream.Stream;
 
 public class UiEventHandler {
+    Game game;
     Score score;
     ActionHandler actions;
     GameFrame gameFrame;
@@ -20,6 +21,7 @@ public class UiEventHandler {
         this.gameFrame = game.frame;
         this.actions = game.match.actions;
         this.score = game.match.score;
+        this.game = game;
         bindButtons();
         bindMenu();
     }
@@ -34,15 +36,15 @@ public class UiEventHandler {
     }
 
     private void bindMenu() {
-
         gameFrame.menu.newGame.addActionListener(e -> actions.restart());
         gameFrame.menu.loadGameDialog.addActionListener(e -> {
             JFileChooser fc = (JFileChooser) e.getSource();
             actions.load(fc.getSelectedFile());
         });
         gameFrame.menu.preferences.addSubmitListener(e -> {
-            Main.preferences = e.preferences;
-            Main.restartGame();
+            game.prepare(Main.preferences = e.preferences);
+            game.match.actions.refresh();
+            game.begin();
         });
     }
 }

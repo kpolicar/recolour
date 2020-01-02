@@ -33,7 +33,7 @@ public class ActionHandler {
         }
     }
 
-    public void remake() {
+    protected void remake() {
         factory.restart().execute();
         match.begin();
     }

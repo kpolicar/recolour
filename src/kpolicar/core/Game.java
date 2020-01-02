@@ -13,6 +13,7 @@ public class Game {
     @XmlTransient
     public GameFrame frame;
     public Match match;
+    @XmlTransient
     public UiEventHandler ui;
 
     public Game() {

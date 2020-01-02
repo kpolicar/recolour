@@ -33,10 +33,4 @@ public class Main {
         game.begin();
         mainFrame.setVisible(true);
     }
-
-    public static void restartGame() {
-        mainFrame.setVisible(false);
-        mainFrame.dispose();
-        startGame();
-    }
 }

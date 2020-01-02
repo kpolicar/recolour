@@ -24,7 +24,7 @@ public class UiEventHandler {
         bindMenu();
     }
 
-    private void bindButtons() {
+    public void bindButtons() {
         Stream.of(gameFrame.grid.buttons)
                 .flatMap(Arrays::stream)
                 .forEach(o -> o.addActionListener(e -> {
@@ -34,6 +34,7 @@ public class UiEventHandler {
     }
 
     private void bindMenu() {
+
         gameFrame.menu.newGame.addActionListener(e -> actions.restart());
         gameFrame.menu.loadGameDialog.addActionListener(e -> {
             JFileChooser fc = (JFileChooser) e.getSource();

@@ -1,6 +1,7 @@
 package kpolicar.ui;
 
 import kpolicar.Main;
+import kpolicar.core.Settings;
 
 import javax.swing.*;
 import java.awt.*;
@@ -24,6 +25,11 @@ public class PalettePanel extends JPanel {
 
             button.setMaximumSize(new Dimension(50, 50));
             button.setBackground(color);
+            if (color.equals(Main.preferences.source)) {
+                button.setBorder(Settings.sourceBorder);
+            } else if (color.equals(Main.preferences.target)) {
+                button.setBorder(Settings.targetBorder);
+            }
             add(button);
         }
     }

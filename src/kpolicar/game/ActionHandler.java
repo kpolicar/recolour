@@ -27,11 +27,15 @@ public class ActionHandler {
 
         if (match.board.isComplete()) {
             factory.victory(score).execute();
-            factory.restart().execute();
-            match.begin();
+            remake();
         } else {
             factory.save().execute();
         }
+    }
+
+    public void remake() {
+        factory.restart().execute();
+        match.begin();
     }
 
     public void randomize() {

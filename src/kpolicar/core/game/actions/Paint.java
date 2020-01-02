@@ -37,7 +37,7 @@ public class Paint implements Action {
 
     protected boolean shouldPaint() {
         for (Cell neighbor : board.neighborsOf(position)) {
-            if (neighbor.color == Main.preferences.target) {
+            if (neighbor.color.equals(Main.preferences.target)) {
                 return true;
             }
         }

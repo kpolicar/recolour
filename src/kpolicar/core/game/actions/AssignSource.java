@@ -1,13 +1,13 @@
 package kpolicar.core.game.actions;
 
 import kpolicar.Main;
+import kpolicar.core.Settings;
 import kpolicar.ui.PalettePanel;
 
 import javax.swing.border.LineBorder;
 import java.awt.*;
 
 public class AssignSource implements Action {
-    final LineBorder border = new LineBorder(Color.GREEN, 5);
     PalettePanel palettePanel;
     Color color;
 
@@ -18,6 +18,6 @@ public class AssignSource implements Action {
 
     public void execute() {
         Main.preferences.source = color;
-        palettePanel.buttons.get(color).setBorder(border);
+        palettePanel.buttons.get(color).setBorder(Settings.sourceBorder);
     }
 }

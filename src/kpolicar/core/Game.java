@@ -13,6 +13,7 @@ public class Game {
     @XmlTransient
     public GameFrame frame;
     public Match match;
+    public UiEventHandler ui;
 
     public Game() {
     }
@@ -28,7 +29,7 @@ public class Game {
     public void prepare(Match match) {
         Main.preferences = match.preferences;
         this.match = match;
-        new UiEventHandler(this);
+        ui = new UiEventHandler(this);
     }
 
     public void begin() {

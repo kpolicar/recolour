@@ -1,6 +1,6 @@
 package kpolicar.xml.adapted;
 
-import java.awt.*;
+import java.awt.Color;
 
 public class Cell {
     public int x, y;

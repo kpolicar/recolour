@@ -45,12 +45,7 @@ public class Board {
             if (buffer.contains(neighbor)) continue;
 
             buffer.add(neighbor);
-            buffer.addAll(
-                    Arrays.asList(connectedTo(neighbor.position, buffer)
-                            .stream()
-                            .filter(cell -> !buffer.contains(cell))
-                            .toArray(Cell[]::new))
-            );
+            buffer = connectedTo(neighbor.position, buffer);
         }
 
         return buffer;

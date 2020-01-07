@@ -12,7 +12,7 @@ import java.awt.*;
 import java.io.File;
 
 public class ActionFactory implements kpolicar.game.ActionFactory {
-    Game game;
+    final protected Game game;
 
     public ActionFactory(Game game) {
         this.game = game;

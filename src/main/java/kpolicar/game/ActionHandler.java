@@ -7,9 +7,9 @@ import java.awt.*;
 import java.io.File;
 
 public class ActionHandler {
-    Match match;
-    ActionFactory factory;
-    Score score;
+    final protected Match match;
+    final protected ActionFactory factory;
+    final protected Score score;
 
     public ActionHandler(Match match, ActionFactory factory, Score score) {
         this.match = match;
@@ -19,6 +19,7 @@ public class ActionHandler {
 
     public void assignSource(Point position) {
         factory.assignSource(position).execute();
+        factory.save().execute();
     }
 
     public void assignTarget() {

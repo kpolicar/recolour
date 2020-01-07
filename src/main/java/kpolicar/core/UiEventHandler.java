@@ -12,15 +12,13 @@ import java.util.Arrays;
 import java.util.stream.Stream;
 
 public class UiEventHandler {
-    Game game;
-    Score score;
-    ActionHandler actions;
-    GameFrame gameFrame;
+    final protected Game game;
+    final protected ActionHandler actions;
+    final protected GameFrame gameFrame;
 
     public UiEventHandler(Game game) {
         this.gameFrame = game.frame;
         this.actions = game.match.actions;
-        this.score = game.match.score;
         this.game = game;
         bindButtons();
         bindMenu();

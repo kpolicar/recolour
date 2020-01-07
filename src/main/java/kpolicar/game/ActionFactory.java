@@ -16,6 +16,8 @@ public interface ActionFactory {
 
     Action victory(Score score);
 
+    Action lose(Score score);
+
     Action randomize();
 
     Action refresh();

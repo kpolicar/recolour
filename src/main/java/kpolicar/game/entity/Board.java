@@ -1,5 +1,7 @@
 package kpolicar.game.entity;
 
+import kpolicar.Main;
+
 import java.awt.*;
 import java.util.Arrays;
 import java.util.LinkedList;
@@ -22,12 +24,16 @@ public class Board {
         }
     }
 
-    public boolean isComplete() {
-        Color color = cells[0][0].color;
-
+    public boolean isWon() {
         return Stream.of(cells)
                 .flatMap(Arrays::stream)
-                .allMatch(cell -> cell.color == color);
+                .allMatch(cell -> cell.color.equals(Main.preferences.target));
+    }
+
+    public boolean isLost() {
+        return Stream.of(cells)
+                .flatMap(Arrays::stream)
+                .noneMatch(cell -> cell.color.equals(Main.preferences.target));
     }
 
     public Cell[] connectedTo(Point position) {

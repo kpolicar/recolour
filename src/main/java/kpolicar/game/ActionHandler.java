@@ -31,8 +31,11 @@ public class ActionHandler {
         Cell source = match.board.cellAt(Main.preferences.source);
         factory.paint(position, source.color, score).execute();
 
-        if (match.board.isComplete()) {
+        if (match.board.isWon()) {
             factory.victory(score).execute();
+            remake();
+        } else if (match.board.isLost()) {
+            factory.lose(score).execute();
             remake();
         } else {
             factory.save().execute();

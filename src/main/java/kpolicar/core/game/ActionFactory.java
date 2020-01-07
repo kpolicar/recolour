@@ -42,6 +42,10 @@ public class ActionFactory implements kpolicar.game.ActionFactory {
         return new Victory(game.frame, score);
     }
 
+    public Action lose(Score score) {
+        return new Lose(game.frame, score);
+    }
+
     public Action randomize() {
         return new Randomize(game.frame, game.match.board, Main.preferences.palette);
     }

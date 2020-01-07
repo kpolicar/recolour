@@ -6,17 +6,19 @@ import kpolicar.game.Action;
 import kpolicar.ui.PalettePanel;
 
 import java.awt.*;
+import java.util.Random;
 
 public class AssignTarget implements Action {
     PalettePanel palettePanel;
-    Color color;
+    Random random = new Random();
 
-    public AssignTarget(Color color, PalettePanel palettePanel) {
-        this.color = color;
+    public AssignTarget(PalettePanel palettePanel) {
         this.palettePanel = palettePanel;
     }
 
     public void execute() {
+        int index = random.nextInt(Main.preferences.palette.length);
+        Color color = Main.preferences.palette[index];
         Main.preferences.target = color;
         palettePanel.buttons.get(color).setBorder(Settings.targetBorder);
     }

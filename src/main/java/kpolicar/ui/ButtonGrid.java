@@ -27,4 +27,8 @@ public class ButtonGrid extends JPanel {
         }
     }
 
+
+    public GridButton buttonAt(Point position) {
+        return buttons[position.x][position.y];
+    }
 }

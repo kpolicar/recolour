@@ -1,5 +1,8 @@
 package kpolicar.game;
 
+import kpolicar.Main;
+import kpolicar.game.entity.Cell;
+
 import java.awt.*;
 import java.io.File;
 
@@ -18,19 +21,32 @@ public class ActionHandler {
         factory.assignSource(position).execute();
     }
 
-    public void assignTarget(Point position) {
-        factory.assignTarget(position).execute();
+    public void assignTarget() {
+        factory.assignTarget().execute();
     }
 
-    public void paint(Point position, Color color) {
-        factory.paint(position, color, score).execute();
+    public void paint(Point position) {
+        if (!shouldPaint(position)) return;
+
+        Cell source = match.board.cellAt(Main.preferences.source);
+        factory.paint(position, source.color, score).execute();
 
         if (match.board.isComplete()) {
             factory.victory(score).execute();
             remake();
         } else {
             factory.save().execute();
+            factory.resetSource().execute();
         }
+    }
+
+    protected boolean shouldPaint(Point position) {
+        for (Cell neighbor : match.board.neighborsOf(Main.preferences.source)) {
+            if (neighbor.position.equals(position)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     protected void remake() {

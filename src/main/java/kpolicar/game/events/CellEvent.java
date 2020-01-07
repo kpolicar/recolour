@@ -17,10 +17,8 @@ public class CellEvent implements GameEvent {
     public void handle() {
         if (Main.preferences.source == null) {
             actions.assignSource(position);
-        } else if (Main.preferences.target == null) {
-            actions.assignTarget(position);
         } else {
-            actions.paint(position, Main.preferences.source);
+            actions.paint(position);
         }
     }
 }

@@ -15,7 +15,8 @@ public class Reset implements Action {
     }
 
     public void execute() {
-        Main.preferences.source = Main.preferences.target = null;
+        Main.preferences.source = null;
+        Main.preferences.target = null;
         palettePanel.buttons.values().forEach(button -> button.setBorder(null));
         score.reset();
     }

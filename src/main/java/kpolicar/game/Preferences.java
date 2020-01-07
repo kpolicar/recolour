@@ -11,7 +11,7 @@ public class Preferences {
     @XmlElementWrapper(name = "palette")
     @XmlElement(name = "color")
     public Color[] palette;
-    public Color source;
+    public Point source;
     public Color target;
 
     public Preferences() {

@@ -6,7 +6,9 @@ import java.io.File;
 public interface ActionFactory {
     Action assignSource(Point position);
 
-    Action assignTarget(Point position);
+    Action resetSource();
+
+    Action assignTarget();
 
     Action reset();
 

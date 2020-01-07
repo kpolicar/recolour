@@ -6,17 +6,15 @@ import kpolicar.game.Action;
 import kpolicar.game.entity.Cell;
 import kpolicar.ui.ButtonGrid;
 
-public class AssignSource implements Action {
+public class ResetSource implements Action {
     ButtonGrid buttons;
-    Cell cell;
 
-    public AssignSource(ButtonGrid buttons, Cell cell) {
+    public ResetSource(ButtonGrid buttons) {
         this.buttons = buttons;
-        this.cell = cell;
     }
 
     public void execute() {
-        Main.preferences.source = cell.position;
-        buttons.buttonAt(cell.position).setBorder(Settings.sourceBorder);
+        buttons.buttonAt(Main.preferences.source).setBorder(Settings.border);
+        Main.preferences.source = null;
     }
 }

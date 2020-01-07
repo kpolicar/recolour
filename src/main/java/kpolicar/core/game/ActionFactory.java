@@ -19,11 +19,15 @@ public class ActionFactory implements kpolicar.game.ActionFactory {
     }
 
     public Action assignSource(Point position) {
-        return new AssignSource(game.match.board.cellAt(position).color, game.frame.palette);
+        return new AssignSource(game.frame.grid, game.match.board.cellAt(position));
     }
 
-    public Action assignTarget(Point position) {
-        return new AssignTarget(game.match.board.cellAt(position).color, game.frame.palette);
+    public Action resetSource() {
+        return new ResetSource(game.frame.grid);
+    }
+
+    public Action assignTarget() {
+        return new AssignTarget(game.frame.palette);
     }
 
     public Action reset() {

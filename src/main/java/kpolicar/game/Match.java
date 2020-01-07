@@ -26,6 +26,7 @@ public class Match {
 
     public void begin() {
         score.reset();
+        actions.assignTarget();
         actions.randomize();
     }
 

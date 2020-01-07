@@ -1,6 +1,7 @@
 package kpolicar.xml.adapted;
 
 import javax.xml.bind.annotation.*;
+import java.awt.Point;
 
 public class Preferences {
     public int columns;
@@ -9,7 +10,7 @@ public class Preferences {
     @XmlElementWrapper(name = "palette")
     @XmlElement(name = "color")
     public java.awt.Color[] palette;
-    public java.awt.Color source;
+    public Point source;
     public java.awt.Color target;
 
     public Preferences() {

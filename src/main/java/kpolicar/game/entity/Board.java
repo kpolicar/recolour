@@ -31,7 +31,10 @@ public class Board {
     }
 
     public Cell[] connectedTo(Point position) {
-        return connectedTo(position, new LinkedList<>())
+        LinkedList<Cell> buffer = new LinkedList<>();
+        buffer.add(cellAt(position));
+
+        return connectedTo(position, buffer)
                 .toArray(Cell[]::new);
     }
 
@@ -42,7 +45,12 @@ public class Board {
             if (buffer.contains(neighbor)) continue;
 
             buffer.add(neighbor);
-            buffer.addAll(connectedTo(neighbor.position, buffer));
+            buffer.addAll(
+                    Arrays.asList(connectedTo(neighbor.position, buffer)
+                            .stream()
+                            .filter(cell -> !buffer.contains(cell))
+                            .toArray(Cell[]::new))
+            );
         }
 
         return buffer;

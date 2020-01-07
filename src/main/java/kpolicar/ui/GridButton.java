@@ -1,5 +1,6 @@
 package kpolicar.ui;
 
+import kpolicar.Main;
 import kpolicar.core.Settings;
 
 import javax.swing.*;
@@ -17,6 +18,10 @@ public class GridButton extends JButton {
         setOpaque(true);
         setBackground(Color.BLUE);
         setForeground(Color.WHITE);
+
+        if (position.equals(Main.preferences.source)) {
+            setBorder(Settings.sourceBorder);
+        }
     }
 
     public String formatPosition() {

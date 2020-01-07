@@ -26,10 +26,9 @@ public class Paint implements Action {
     }
 
     public void execute() {
-        for (Cell neighbor : board.connectedTo(position)) {
-            color(neighbor.position);
+        for (Cell connected : board.connectedTo(position)) {
+            color(connected.position);
         }
-        color(cell.position);
         score.increment();
     }
 

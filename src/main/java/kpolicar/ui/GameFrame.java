@@ -7,7 +7,7 @@ public class GameFrame extends JFrame {
     public GameMenu menu;
     public ButtonGrid grid;
     public PalettePanel palette;
-    ActionHandler actions = new ActionHandler(this);
+    protected ActionHandler actions = new ActionHandler(this);
 
     public GameFrame() {
         setSize(300, 300);
@@ -15,7 +15,6 @@ public class GameFrame extends JFrame {
         setExtendedState(Frame.MAXIMIZED_BOTH);
 
         setJMenuBar(menu = new GameMenu(actions));
-        add(new Label("Heyo"), BorderLayout.PAGE_START);
         makeGameFields();
     }
 

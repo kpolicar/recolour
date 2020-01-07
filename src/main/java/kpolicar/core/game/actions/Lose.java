@@ -15,7 +15,6 @@ public class Lose implements Action {
         this.score = score;
     }
 
-    @Override
     public void execute() {
         JOptionPane.showMessageDialog(gameFrame, "You lose! Number of moves: " + score.moves());
     }

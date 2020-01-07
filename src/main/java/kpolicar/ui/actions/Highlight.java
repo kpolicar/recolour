@@ -1,5 +1,6 @@
 package kpolicar.ui.actions;
 
+import kpolicar.Main;
 import kpolicar.core.Settings;
 import kpolicar.ui.Action;
 import kpolicar.ui.GameFrame;
@@ -38,9 +39,9 @@ public class Highlight implements Action, Runnable {
     }
 
     public void blink() throws InterruptedException {
-        buttons.forEach(b -> b.setBorder(Settings.hightlightBorder));
+        buttons.forEach(b -> b.setBorder(Main.settings.hightlightBorder));
         Thread.sleep(200);
-        buttons.forEach(b -> b.setBorder(Settings.border));
+        buttons.forEach(b -> b.setBorder(Main.settings.border));
     }
 
     public void execute() {

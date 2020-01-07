@@ -17,12 +17,10 @@ public class MatchAdapter extends XmlAdapter<kpolicar.xml.adapted.Match, kpolica
         this.game = game;
     }
 
-    @Override
     public Match unmarshal(kpolicar.xml.adapted.Match loaded) throws Exception {
         return new kpolicar.game.Match(loaded.board, loaded.preferences, new ActionFactory(game));
     }
 
-    @Override
     public kpolicar.xml.adapted.Match marshal(Match original) throws Exception {
         return new kpolicar.xml.adapted.Match(original);
     }

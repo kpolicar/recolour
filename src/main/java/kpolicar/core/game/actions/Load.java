@@ -28,7 +28,7 @@ public class Load implements Action {
         }
     }
 
-    private Game readGame() throws JAXBException {
+    protected Game readGame() throws JAXBException {
         JAXBContext jaxbContext = JAXBContext.newInstance(game.getClass());
         Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
         unmarshaller.setAdapter(MatchAdapter.class, new MatchAdapter(game));

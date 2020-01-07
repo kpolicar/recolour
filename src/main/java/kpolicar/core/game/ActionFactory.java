@@ -35,7 +35,7 @@ public class ActionFactory implements kpolicar.game.ActionFactory {
     }
 
     public Action paint(Point position, Color color, Score score) {
-        return new Paint(game.frame, game.match.board, position, color, score);
+        return new Paint(game.frame.grid, game.match.board, position, color, score);
     }
 
     public Action victory(Score score) {
@@ -62,7 +62,7 @@ public class ActionFactory implements kpolicar.game.ActionFactory {
     }
 
     public Action save() {
-        return new Save(game, Settings.savePath);
+        return new Save(game, Main.settings.savePath);
     }
 
     public Load load(File file) {

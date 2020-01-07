@@ -16,8 +16,10 @@ public class Reset implements Action {
     }
 
     public void execute() {
+        if (Main.preferences.source != null) {
+            frame.buttonAt(Main.preferences.source).setBorder(Main.settings.border);
+        }
         frame.palette.buttons.values().forEach(button -> button.setBorder(null));
-        frame.buttonAt(Main.preferences.source).setBorder(Settings.border);
         score.reset();
         Main.preferences.source = null;
         Main.preferences.target = null;

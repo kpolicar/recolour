@@ -17,6 +17,6 @@ public class AssignSource implements Action {
 
     public void execute() {
         Main.preferences.source = cell.position;
-        buttons.buttonAt(cell.position).setBorder(Settings.sourceBorder);
+        buttons.buttonAt(cell.position).setBorder(Main.settings.sourceBorder);
     }
 }

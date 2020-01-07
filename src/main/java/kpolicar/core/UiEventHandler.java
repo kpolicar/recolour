@@ -43,7 +43,7 @@ public class UiEventHandler {
         });
         gameFrame.menu.preferences.addSubmitListener(e -> {
             game.prepare(Main.preferences = e.preferences);
-            game.match.actions.refresh();
+            actions.refresh();
             game.begin();
         });
     }

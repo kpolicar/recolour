@@ -1,15 +1,17 @@
 package kpolicar;
 
 import kpolicar.core.Game;
+import kpolicar.core.Settings;
 import kpolicar.game.Preferences;
 import kpolicar.ui.GameFrame;
 
 import javax.swing.*;
 
 public class Main {
-    public static Game game;
+    protected static Game game;
+    protected static GameFrame mainFrame;
     public static Preferences preferences;
-    static GameFrame mainFrame;
+    public static Settings settings = new Settings();
 
     public static void main(String[] args) {
         int rows, columns, variations;

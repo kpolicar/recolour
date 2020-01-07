@@ -28,7 +28,7 @@ public class PalettePanel extends JPanel {
             button.setMaximumSize(new Dimension(50, 50));
             button.setBackground(color);
             if (color.equals(Main.preferences.target)) {
-                button.setBorder(Settings.targetBorder);
+                button.setBorder(Main.settings.targetBorder);
             }
             button.addActionListener(e -> actions.highlight(color));
             add(button);

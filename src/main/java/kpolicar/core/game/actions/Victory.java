@@ -15,7 +15,6 @@ public class Victory implements Action {
         this.score = score;
     }
 
-    @Override
     public void execute() {
         JOptionPane.showMessageDialog(gameFrame, "Victory! Number of moves: " + score.moves());
     }

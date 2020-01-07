@@ -20,6 +20,6 @@ public class AssignTarget implements Action {
         int index = random.nextInt(Main.preferences.palette.length);
         Color color = Main.preferences.palette[index];
         Main.preferences.target = color;
-        palettePanel.buttons.get(color).setBorder(Settings.targetBorder);
+        palettePanel.buttons.get(color).setBorder(Main.settings.targetBorder);
     }
 }

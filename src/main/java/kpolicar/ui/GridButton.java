@@ -14,13 +14,13 @@ public class GridButton extends JButton {
         super();
         position = new Point(row, column);
 
-        setBorder(Settings.border);
+        setBorder(Main.settings.border);
         setOpaque(true);
         setBackground(Color.BLUE);
         setForeground(Color.WHITE);
 
         if (position.equals(Main.preferences.source)) {
-            setBorder(Settings.sourceBorder);
+            setBorder(Main.settings.sourceBorder);
         }
     }
 

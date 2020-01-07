@@ -4,6 +4,7 @@ import kpolicar.game.Action;
 import kpolicar.game.Score;
 import kpolicar.game.entity.Board;
 import kpolicar.game.entity.Cell;
+import kpolicar.ui.ButtonGrid;
 import kpolicar.ui.GameFrame;
 
 import java.awt.*;
@@ -12,12 +13,12 @@ public class Paint implements Action {
     Cell cell;
     Point position;
     Board board;
-    GameFrame gameFrame;
+    ButtonGrid buttons;
     Color color;
     Score score;
 
-    public Paint(GameFrame gameFrame, Board board, Point position, Color color, Score score) {
-        this.gameFrame = gameFrame;
+    public Paint(ButtonGrid buttons, Board board, Point position, Color color, Score score) {
+        this.buttons = buttons;
         this.board = board;
         this.position = position;
         this.cell = board.cellAt(position);
@@ -33,7 +34,7 @@ public class Paint implements Action {
     }
 
     protected void color(Point position) {
-        gameFrame.buttonAt(position).setBackground(color);
+        buttons.buttonAt(position).setBackground(color);
         board.cellAt(position).color = color;
     }
 }

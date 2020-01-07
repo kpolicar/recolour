@@ -14,7 +14,7 @@ public class ResetSource implements Action {
     }
 
     public void execute() {
-        buttons.buttonAt(Main.preferences.source).setBorder(Settings.border);
+        buttons.buttonAt(Main.preferences.source).setBorder(Main.settings.border);
         Main.preferences.source = null;
     }
 }

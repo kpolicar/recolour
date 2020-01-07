@@ -31,7 +31,7 @@ public class ActionFactory implements kpolicar.game.ActionFactory {
     }
 
     public Action reset() {
-        return new Reset(game.frame.palette, game.match.score);
+        return new Reset(game.frame, game.match.score);
     }
 
     public Action paint(Point position, Color color, Score score) {

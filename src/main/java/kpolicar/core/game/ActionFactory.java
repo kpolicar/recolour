@@ -58,6 +58,7 @@ public class ActionFactory implements kpolicar.game.ActionFactory {
         return () -> {
             randomize().execute();
             reset().execute();
+            assignTarget().execute();
         };
     }
 

@@ -34,10 +34,10 @@ public class ActionHandler {
 
         if (match.board.isWon()) {
             factory.victory(score).execute();
-            remake();
+            factory.restart().execute();
         } else if (match.board.isLost()) {
             factory.lose(score).execute();
-            remake();
+            factory.restart().execute();
         } else {
             factory.save().execute();
             factory.resetSource().execute();
@@ -51,11 +51,6 @@ public class ActionHandler {
             }
         }
         return false;
-    }
-
-    protected void remake() {
-        factory.restart().execute();
-        match.begin();
     }
 
     public void randomize() {
